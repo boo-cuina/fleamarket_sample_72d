@@ -3,6 +3,13 @@
   padding-bottom: 20px;
 }
 
+@mixin hissu {
+  background-color: red;
+
+  // border-radius: 15px;
+  font-size: 15px;
+}
+
 .item-new {
   width: 100%;
   background-color: lightgrey;
@@ -23,6 +30,15 @@
     padding: 0 50px;
     background-color: white;
 
+    .title {
+      display: flex;
+      p {
+        margin-right: 20px;
+      }
+    }
+      .necessary-mark {
+        @include hissu
+      }
 
     &-picture {
       @include padding;
