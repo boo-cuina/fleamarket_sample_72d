@@ -1,0 +1,69 @@
+@mixin padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.item-new {
+  width: 100%;
+  background-color: lightgrey;
+
+  &__header {
+    height: 130px;
+    width: 100%;
+    text-align: center;
+    line-height: 130px;
+    font-size: 50px;
+    background-color: lightgrey;
+  }
+
+  &__content {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    padding: 0 50px;
+    background-color: white;
+
+
+    &-picture {
+      @include padding;
+      height: 250px;
+      margin-bottom: 2px;
+      background-color: yellow;
+
+      .file-upload-box {
+        height: 130px;
+        width: 600px;
+        background-color: lightyellow;
+      }     
+    }
+
+
+    &-detail {
+      @include padding;
+      height: 400px;
+      margin-bottom: 2px;
+      background-color: blue;
+    }
+
+    &-category {
+      @include padding;
+      height: 420px;
+      margin-bottom: 2px;
+      background-color: yellow;
+    }
+
+    &-delivery {
+      @include padding;
+      height: 420px;
+      margin-bottom: 2px;
+      background-color: blue;
+    }
+
+    &-confirm {
+      @include padding;
+      height: 600px;
+      margin-bottom: 2px;
+      background-color: yellow;
+    }
+  }
+}
