@@ -43,7 +43,7 @@
 .item-new {
   width: 100%;
   font-size: 15px;
-  background-color: lightgrey;
+  background-color: #EEEEEE;
 
   &__header {
     height: 130px;
@@ -51,7 +51,7 @@
     text-align: center;
     line-height: 130px;
     font-size: 50px;
-    background-color: lightgrey;
+    background-color: #EEEEEE;
   }
 
   &__content {
@@ -209,6 +209,6 @@
   .item-new__footer {
     height: 200px;
     width: 100%;
-    background-color: lightgray;
+    background-color: #EEEEEE;
   }
 }
