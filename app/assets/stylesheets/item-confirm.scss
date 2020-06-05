@@ -1,0 +1,113 @@
+@mixin padding {
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+
+
+.item-confirm {
+  width: 100%;
+  font-size: 15px;
+  background-color: #EEEEEE;
+
+  &__header {
+    height: 130px;
+    width: 100%;
+    text-align: center;
+    line-height: 130px;
+    font-size: 50px;
+    background-color: #EEEEEE;
+
+    p {
+      font-size: 50px;
+    }
+  }
+  
+  &__content {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    background-color: white;
+
+    &-title {
+      @include padding;
+      height: 80px;
+      text-align: center;
+      line-height: 80px;
+      border-bottom: solid 1px #EEEEEE;
+
+      p {
+        font-size: 20px;
+      }
+    }
+
+    &-item {
+      @include padding;
+      height: 120px;
+      border-bottom: solid 1px #EEEEEE;
+    }
+
+    &-total {
+      @include padding;
+      height: 120px;
+      border-bottom: solid 1px #EEEEEE;
+
+      .total {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    }
+
+    &-card-info {
+      @include padding;
+      height: 160px;
+      margin-top: 20px;
+      border-bottom: solid 1px #EEEEEE;
+
+      .way-of-payment {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &-delivery-info {
+      @include padding;
+      height: 160px;
+      margin-top: 20px;
+      border-bottom: solid 1px #EEEEEE;
+
+      .delivery-info {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &-confirm {
+      height: 120px;
+      border-bottom: solid 1px #EEEEEE;
+      text-align: center;
+
+      .confirm-btn {
+        margin-top: 40px;
+        line-height: 120px;
+        height: 40px;
+        width: 300px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        line-height: 40px;
+        color: white;
+        background-color: red;
+      }
+    }
+    .item-confirm__footer {
+      height: 200px;
+      width: 100%;
+      background-color: #EEEEEE;
+    }
+  }
+
+  
+}
