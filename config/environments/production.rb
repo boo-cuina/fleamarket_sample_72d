@@ -63,7 +63,8 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+  # 工藤が記入 EC2内でのbundle install時にrailsのversionによるエラーが出たので、エラー文の指示の通り修正（= true → = [I18n.default_locale]）
+  config.i18n.fallbacks = [I18n.default_locale]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
