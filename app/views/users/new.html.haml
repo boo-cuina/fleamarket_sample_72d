@@ -7,19 +7,19 @@
         会員情報入力
       .account-main__content
         .account-main__content-form
-        -# = form_with @user, local: true do |form|
+        -# = form_with @user, local: true do |f|
           .form-group
             -# = f.label ニックネーム
             %span.form-require
               必須
             .form-input
-              -# = f.text_field :nick_name, placeholder: "例）メルカリ太郎", class: "input-default"
+              = f.text_field :nick_name, placeholder: "例）メルカリ太郎", class: "input-default"
           .form-group
             -# = f.label メールアドレス
             %span.form-require
               必須
             .form-input
-              -# = f.text_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default"
+              = f.text_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default"
           .form-group
             -# = f.label パスワード
             %span.form-require
@@ -36,15 +36,15 @@
             %span.form-require
               必須
             .form-input
-              -# = f.text_field :surname, placeholder: "例）山田", class: "input-default"
-              -# = f.text_field :name, placeholder: "例）太郎", class: "input-default"
+              = f.text_field :surname, placeholder: "例）山田", class: "input-default"
+              = f.text_field :name, placeholder: "例）太郎", class: "input-default"
           .form-group
             -# = f.label "お名前カナ(全角)"
             %span.form-require
               必須
             .form-input
-              -# = f.text_field :surname_kana, placeholder: "例）ヤマダ", class: "input-default"
-              -# = f.text_field :name_kana, placeholder: "例）タロウ", class: "input-default"
+              = f.text_field :surname_kana, placeholder: "例）ヤマダ", class: "input-default"
+              = f.text_field :name_kana, placeholder: "例）タロウ", class: "input-default"
           .form-group
             -# = f.label "生年月日"
             %span.form-require
