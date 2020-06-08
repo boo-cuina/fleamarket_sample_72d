@@ -16,7 +16,6 @@
 @mixin hissu {
   background-color: red;
   color: white;
-  // border-radius: 15px;
   font-size: 10px;
   height: 15px;
   padding: 0 5px;
@@ -83,7 +82,6 @@
       height: 250px;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
-      // background-color: yellow;
 
       .file-upload-box {
         height: 130px;
@@ -99,7 +97,6 @@
       height: 400px;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
-      // background-color: blue;
 
       .detail__text-form1 {
         @include text_form
@@ -117,7 +114,6 @@
       height: 420px;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
-      // background-color: yellow;
 
       .category__text-form {
         @include text_form
@@ -136,7 +132,6 @@
       height: 420px;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
-      // background-color: blue;
 
       .delivery__text-form1 {
         @include text_form
@@ -155,7 +150,6 @@
       @include margin;
       height: 570px;
       margin-bottom: 2px;
-      // background-color: yellow;
 
       .form {
         height: 60px;
