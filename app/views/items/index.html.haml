@@ -1,2 +1,128 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.haml
+-# ヘッダー
+.header
+  .main-header
+    = image_tag 'logo.png', class: 'main-header__icon'
+    .main-header__searchbox
+      .input.main-header__searchbox__input
+      .input
+  .sub-header
+    %ul.leftlist
+      %li.leftlist__conts カテゴリー
+      %li.leftlist__conts ブランド
+    %ul.rightlist
+      %li.rightlist__conts ログイン
+      
+      %li.rightlist__conts 新規登録
+
+.input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('far', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn", value: "Send"}
+
+-# メインコンテンツ
+.main-contents
+
+.dl-guidance1
+  .dl-guidance1__content
+    .dl-guidance1__content-subtitle 人生を変えるフリマアプリ
+    .dl-guidance1__content-text FURIMAはだれでもかんたんに出品・購入できるフリマアプリです
+    .dl-guidance1__content-btn
+      .dl-guidance1__content-abtn
+        = link_to "apple",
+      .dl-guidance1__content-gbtn
+
+.introduction
+  %h2.introduction__subtitle FURIMAが選ばれる３つの理由
+  %ul.introduction__contents
+    %li.introduction__contents-list
+      .introduction__contents-list-picture
+        %span.introduction__contents-list-picture-number1 １
+      %h3.introduction__contents-list-text ３分ですぐに出品
+      %p.introduction__contents-list-discription スマホ入力するだけで簡単に出品できる！
+    %li.introduction__contents-list
+      .introduction__contents-list-picture
+        %span.introduction__contents-list-picture-number2 ２
+      %h3.introduction__contents-list-text シンプルで使いやすい
+      %p.main__introduction__contents__list___discription めんどくさい入力は必要なく、検索も購入もスムーズ！
+    %li.introduction__contents-list
+      .introduction__contents-list-picture
+        %span.introduction__contents-list-picture-number3 ３
+      %h3.introduction__contents-list-text 手数料 業界最安
+      %p.introduction__contents-list-discription 最大3%でお得に出品&購入！
+
+.dl-guidance2
+  .dl-guidance2__content
+    .dl-guidance2__content-subtitle 会員数日本一位
+    .dl-guidance2__content-text FURIMAは、フリマアプリで最も人気。出品・購入回数も業界最多です！ほしかったあの商品に出会えるかもしれません。
+    .dl-guidance2__content-btn
+      .dl-guidance2__content-btn-a
+      .dl-guidance2__content-btn-g
+
+.feature
+  %h2.feature__subtitle FURIMAの特徴
+  %ul.feature__contents
+    %li.feature__contents-list
+      .feature__contents-list-picture
+      %h3.feature__contents-list-text 簡単に売り買いできる
+      %p.feature__contents-list-discription スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    %li.feature__contents-list
+      .feature__contents-list-picture
+      %h3.feature__contents-list-text 売上金は即日振込みに対応
+      %p.feature__contents-list-discription 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+    %li.feature__contents-list
+      .feature__contents-list-picture
+      %h3.feature__contents-list-text 様々な支払いに対応
+      %p.feature__contents-list-discription お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  
+.pickup-container
+  .pickup-container__title ピックアップカテゴリー
+  .pickup-container__subtitle 新規投稿商品
+  %ul.pickup-container__product-list
+    %li.pickup-container__list-picture
+    %li.pickup-container__list-picture
+    %li.pickup-container__list-picture
+
+
+.pickup-container
+  .pickup-container__title ピックアップブランド
+  .pickup-container__subtitle アーカイバ
+  %ul.pickup-container__product-list
+    %li.pickup-container__list-picture
+    %li.pickup-container__list-picture
+    %li.pickup-container__list-picture
+
+.dl-guidance3
+  .dl-guidance3__content
+    .dl-guidance3__content-subtitle だれでもかんたん、人生を変えるフリマアプリ
+    .dl-guidance3__content-text 今すぐ無料ダウンロード！
+    .dl-guidance3__content-btn
+      .dl-guidance3__content-btn-a
+      .dl-guidance3__content-btn-g
+
+-# フッター
+.footer
+  .contents
+    .summary-furima
+      %h2.summary-furima__title FURIMAについて
+      %ul.summary-furima__nav
+        %li. 
+          = link_to '#', class: summary-furima__nav__list do 
+          会社概要(運営会社)
+        %li.summary-furima__nav__list プライバシーポリシー
+        %li.summary-furima__nav__list FURIMA利用規約
+        %li.summary-furima__nav__list ポイントに関する特約
+    .show-furima
+      %h2.show-furima__title FURIMAを見る
+      %ul.show-furima__nav
+        %li.show-furima__nav__list カテゴリー一覧
+        %li.show-furima__nav__list ブランド一覧
+    .help-guide
+      %h2.help-guide__title FURIMAについて
+      %ul.help-guide__nav
+        %li.help-guide__nav__list FURIMAガイド
+        %li.help-guide__nav__list FURIMAロゴ利用ガイドライン
+        %li.help-guide__nav__list お知らせ
+  .footer-logo
+  .copyright &copy; FURIMA
