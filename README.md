@@ -20,6 +20,8 @@
 - has_one :card
 
 ## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |last_name|string|null: false|
 |last_name_reading|string|null: false|
 |first_name|string|null: false|
