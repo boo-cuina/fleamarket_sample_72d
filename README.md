@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :items
-- has_many :orders
+- has_many :addresses
 - has_one :card
 
 ## addressesテーブル
@@ -34,7 +34,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :orders
+- has_many :items
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -45,7 +45,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :orders
+- has_many :items
 
 
 ## itemsテーブル
@@ -60,12 +60,17 @@
 |shipping_fee_cost|string|null: false|
 |shipping_days|integer|null: false|
 |user_id|references|null: false,foreign_key: true|
+|card_id|references|null: false,foreign_key: true|
+|address_id|references|null: false,foreign_key: true|
 |category_id|references|null: false,foreign_key: true|
 
 ### Association
-- belongs_to :order
+- belongs_to :user
+- belongs_to :card
+- belongs_to :address
 - has_many :photos
 - belongs_to :category
+
 
 
 ## photosテーブル
@@ -86,29 +91,3 @@
 ### Association
 - has_many :items
 
-
-## ordersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|order_id|string|null: false|
-|payment_method|string|null: false|
-|last_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name|string|null: false|
-|first_name_kana|string|null: false|
-|postcode|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-|building|string||
-|phone_number|string|null: false|
-|user_id|references|null: false,foreign_key: true|
-|address_id|references|foreign_key: true|
-|card_id|references|foreign_key: true|
-|item_id|references|null: false,foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :address
-- belongs_to :card
-- has_many :items
