@@ -55,7 +55,7 @@
 |name|string|null: false|
 |description|text|null: false|
 |size|string|null: false|
-|status|string|null: false|
+|status|integer|null: false|
 |price|integer|null: false|
 |shipping_fee|integer|null: false|
 |shipping_fee_cost|string|null: false|
