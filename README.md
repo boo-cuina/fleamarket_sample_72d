@@ -46,7 +46,6 @@
 
 ### Association
 - belongs_to :user
-- has_many :items
 
 
 ## itemsテーブル
@@ -61,14 +60,10 @@
 |shipping_fee_cost|string|null: false|
 |shipping_days|integer|null: false|
 |user|references|null: false,foreign_key: true|
-|card|references|null: false,foreign_key: true|
-|address|references|null: false,foreign_key: true|
 |category|references|null: false,foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :card
-- belongs_to :address
 - has_many :photos
 - belongs_to :category
 
