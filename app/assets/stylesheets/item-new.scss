@@ -51,7 +51,7 @@
     line-height: 130px;
     font-size: 50px;
     background-color: #EEEEEE;
-
+    
     .item-new__logo {
       height: 60px;
       width: 200px;
@@ -67,7 +67,10 @@
     .title {
       display: flex;
       align-items: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
       margin: 20px 0;
+
       p {
         margin-right: 20px;
       }
