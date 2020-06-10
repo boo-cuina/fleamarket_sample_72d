@@ -1,0 +1,25 @@
+.login-container
+  .login-container__header
+    .login-container__header-logo
+      = image_tag 'logo.png', class: 'furima-logo'
+  .login-container__main
+    .login-container__main__panel
+      .login-container__main__panel__content
+        .login-container__main__panel__content__head
+          %p.text
+            アカウントをお持ちでない方はこちら
+          .form-btn
+            = submit_tag "新規会員登録", class: "btn"
+        .login-container__main__panel__content__form
+          %p.title メールアドレス
+          .form
+            = text_field :mail, "メールアドレス", class: "input-default"
+
+          %p.title パスワード
+          .form
+            = password_field :password, "パスワード", class: "input-default"
+
+          .login-btn
+            = submit_tag "ログイン", class: "btn"
+
+  .login-container__footer
