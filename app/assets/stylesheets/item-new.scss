@@ -1,0 +1,217 @@
+@mixin padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@mixin margin {
+  margin: 0 50px;
+}
+
+@mixin text_form {
+  height: 60px;
+  width: 500px;
+  background-color: lightyellow;
+}
+
+@mixin hissu {
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  height: 15px;
+  padding: 0 5px;
+}
+@mixin ninni {
+  background-color: grey;
+  color: white;
+  border-radius: 15px;
+  font-size: 12px;
+  height: 20px;
+  padding: 0 5px;
+}
+
+@mixin btn {
+  height: 40px;
+  width: 300px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+.item-new {
+  width: 100%;
+  font-size: 15px;
+  background-color: #EEEEEE;
+
+  &__header {
+    height: 130px;
+    width: 100%;
+    text-align: center;
+    line-height: 130px;
+    font-size: 50px;
+    background-color: #EEEEEE;
+    
+    .item-new__logo {
+      height: 60px;
+      width: 200px;
+    }
+  }
+
+  &__content {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    background-color: white;
+
+    .title {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      margin: 20px 0;
+
+      p {
+        margin-right: 20px;
+      }
+    }
+      .necessary-mark {
+        @include hissu
+      }
+
+      .not__necessary-mark {
+        @include ninni
+      }
+
+    &-picture {
+      @include padding;
+      @include margin;
+      height: 250px;
+      margin-bottom: 2px;
+      border-bottom: solid 1px grey;
+
+      .file-upload-box {
+        height: 130px;
+        width: 500px;
+        background-color: lightyellow;
+      }     
+    }
+
+
+    &-detail {
+      @include padding;
+      @include margin;
+      height: 400px;
+      margin-bottom: 2px;
+      border-bottom: solid 1px grey;
+
+      .detail__text-form1 {
+        @include text_form
+      }
+      .detail__text-form2 {
+        height: 180px;
+        width: 500px;
+        background-color: lightyellow;
+      }
+    }
+
+    &-category {
+      @include padding;
+      @include margin;
+      height: 420px;
+      margin-bottom: 2px;
+      border-bottom: solid 1px grey;
+
+      .category__text-form {
+        @include text_form
+      }
+      .category__text-form2 {
+        @include text_form
+      }
+      .category__text-form3 {
+        @include text_form
+      }
+    }
+
+    &-delivery {
+      @include padding;
+      @include margin;
+      height: 420px;
+      margin-bottom: 2px;
+      border-bottom: solid 1px grey;
+
+      .delivery__text-form1 {
+        @include text_form
+      }
+      .delivery__text-form2 {
+        @include text_form
+      }
+      .delivery__text-form3 {
+        @include text_form
+      }
+      
+    }
+
+    &-confirm {
+      @include padding;
+      @include margin;
+      height: 570px;
+      margin-bottom: 2px;
+
+      .form {
+        height: 60px;
+        width: 250px;
+        background-color: lightyellow;
+      }
+
+      .item-new__content-confirm__box1 {
+        display: flex;
+        justify-content: space-between;
+      
+        .confirm__text-form {
+          display: flex;
+        }
+      }
+      .confirm__tax {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .confirm__tax__border {
+        height: 10px;
+        width: 500px;
+        border-bottom: solid 1px gray;
+      }
+      .btn {
+        text-align: center;
+      
+        .item-new__confirm-btn {
+          @include btn;
+          color: white;
+          background-color: red;
+        }
+
+        .item-new__save-btn {
+          @include btn;
+          background-color: #EEEEEE;
+        }
+        .back-btn {
+          text-decoration: none;
+          color: lightskyblue;
+        }
+
+      }
+      p.caution {
+        font-size: 5px;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .item-new__footer {
+    height: 200px;
+    width: 100%;
+    background-color: #EEEEEE;
+  }
+}
