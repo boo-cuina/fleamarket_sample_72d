@@ -43,6 +43,12 @@
         .form-name
           = text_field :last_name_kana, "例）ヤマダ", class: "input-default-half"
           = text_field :first_name_kana, "例）タロウ", class: "input-default-half"
+
+        %p.title 電話番号
+        %span.require
+          必須
+        .form
+          = text_field :phone_number, class: "input-default"
         
         %p.title 生年月日
         %span.require
