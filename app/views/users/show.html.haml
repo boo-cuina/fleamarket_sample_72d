@@ -1,2 +1,34 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+-# %h1 Users#show
+-# %p Find me in app/views/users/show.html.haml
+
+.login-container
+  .login-container__header
+    = image_tag 'logo.png', class: 'furima-logo'
+  .login-container__main
+    .login-container__main__panel
+      .login-container__main__panel__content
+        .login-container__main__panel__content__head
+          %p.text
+            アカウントをお持ちでない方はこちら
+          .form-btn
+            = link_to "新規会員登録", "http://localhost:3000/users/new", class: "btn"
+        .login-container__main__panel__content__form
+          %p.title メールアドレス
+          .form
+            = text_field :mail, "メールアドレス", class: "input-default"
+
+          %p.title パスワード
+          .form
+            = password_field :password, "パスワード", class: "input-default"
+
+          .login-btn
+            = submit_tag "ログイン", class: "btn"
+
+  .login-container__footer
+    %ul.login-container__footer__terms
+      %li= link_to 'プライバシーポリシー', "https://www.merucari.com/jp/privacy/"
+      %li= link_to '利用規約', "https://www.mercari.com/jp/tops"
+      %li= link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei"
+
+    .login-container__footer__logo
+      = image_tag 'logo-white.png', class: 'furima-footer-logo'
