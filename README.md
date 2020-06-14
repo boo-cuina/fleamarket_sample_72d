@@ -59,7 +59,8 @@
 |shipping_fee|integer|null: false|
 |shipping_fee_cost|string|null: false|
 |shipping_days|integer|null: false|
-|user|references|null: false,foreign_key: true|
+|buying_user|references|foreign_key: { to_table: :users }|
+|seller_user|references|null: false,foreign_key: { to_table: :users }|
 |category|references|null: false,foreign_key: true|
 
 ### Association
@@ -83,6 +84,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string||
 
 ### Association
 - has_many :items
