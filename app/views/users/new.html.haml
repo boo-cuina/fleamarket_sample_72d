@@ -1,6 +1,6 @@
 .account
   .account__header
-    = image_tag 'logo.png', class: 'furima-logo'
+    = render 'layouts/header-logo'
   .account__main
     .account__main__content
       %h1.account__main__content__head
@@ -109,11 +109,4 @@
             Teams of Service
           apply.
 
-  .account__footer
-    %ul.account__footer__terms
-      %li= link_to 'プライバシーポリシー', "#"
-      %li= link_to '利用規約', "#"
-      %li= link_to '特定商取引に関する表記', "#"
-
-    .account__footer__logo
-      = image_tag 'logo-white.png', class: 'furima-footer-logo'
+  = render "layouts/footer-logo"
