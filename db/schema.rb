@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615140121) do
+ActiveRecord::Schema.define(version: 20200615141120) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",          null: false
@@ -46,6 +46,25 @@ ActiveRecord::Schema.define(version: 20200615140121) do
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                            null: false
+    t.text     "description",       limit: 65535, null: false
+    t.string   "size",                            null: false
+    t.integer  "status",                          null: false
+    t.integer  "price",                           null: false
+    t.integer  "shipping_fee",                    null: false
+    t.string   "shipping_fee_cost",               null: false
+    t.integer  "shipping_days",                   null: false
+    t.integer  "buyer_id",                        null: false
+    t.integer  "seller_id",                       null: false
+    t.integer  "category_id",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -67,4 +86,7 @@ ActiveRecord::Schema.define(version: 20200615140121) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end
