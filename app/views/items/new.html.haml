@@ -7,9 +7,8 @@
         .necessary-mark 必須
       %p.note 最大５枚までアップロードできます
       .file-upload-box
-      -#   = form_with model: @item do |form|
-      -#     = form.file_field :image, placeholder: "クリックして画像をアップロード"
-        -# file挿入部
+        = form_with(url: {action: :upload]}, multipart: true) do
+        = file_field_tag 'picture', placeholder: "クリックして画像をアップロード"
     .item-new__content-detail
       .title
         %p 商品名
