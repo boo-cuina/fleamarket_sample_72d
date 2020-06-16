@@ -58,14 +58,9 @@
     margin-bottom: 2px;
     background-color: white;
 
-
-    input[type="text"] {
+    .item-new-form,
+      input[type="text"] {
       width: 500px;
-      height: 60px;
-    }
-
-    .item-new-form2 {
-      width: 250px;
       height: 60px;
     }
 
@@ -119,7 +114,6 @@
       .detail__text-form2 {
         height: 180px;
         width: 500px;
-        background-color: lightyellow;
       }
     }
 
@@ -150,7 +144,6 @@
       .form {
         height: 60px;
         width: 250px;
-        background-color: lightyellow;
       }
 
       .item-new__content-confirm__box1 {
@@ -159,6 +152,11 @@
       
         .confirm__text-form {
           display: flex;
+
+          input[type="text"] {
+            width: 250px;
+            height: 60px;
+          } 
         }
       }
       .confirm__tax {
@@ -166,6 +164,12 @@
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
+
+
+        input[type="text"] {
+          width: 250px;
+          height: 60px;
+        }  
       }
       .confirm__tax__border {
         height: 10px;
