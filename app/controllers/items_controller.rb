@@ -2,10 +2,11 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def create
+  def new
+    @item = Item.new
   end
 
-  def new
+  def create
   end
 
   def show
