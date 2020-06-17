@@ -7,12 +7,6 @@
   margin: 0 50px;
 }
 
-@mixin text_form {
-  height: 60px;
-  width: 500px;
-  background-color: lightyellow;
-}
-
 @mixin hissu {
   background-color: red;
   color: white;
@@ -64,6 +58,18 @@
     margin-bottom: 2px;
     background-color: white;
 
+    .item-new-form,
+      input[type="text"] {
+      width: 500px;
+      height: 60px;
+    }
+
+    textarea {
+      width: 500px;
+      height: 180px;
+      border: solid 1px #DDDDDD;
+    }
+
     .title {
       display: flex;
       align-items: center;
@@ -93,7 +99,7 @@
       .file-upload-box {
         height: 130px;
         width: 500px;
-        background-color: lightyellow;
+        border: solid 1px #DDDDDD;
       }     
     }
 
@@ -105,13 +111,9 @@
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
 
-      .detail__text-form1 {
-        @include text_form
-      }
       .detail__text-form2 {
         height: 180px;
         width: 500px;
-        background-color: lightyellow;
       }
     }
 
@@ -122,15 +124,6 @@
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
 
-      .category__text-form {
-        @include text_form
-      }
-      .category__text-form2 {
-        @include text_form
-      }
-      .category__text-form3 {
-        @include text_form
-      }
     }
 
     &-delivery {
@@ -140,16 +133,6 @@
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
 
-      .delivery__text-form1 {
-        @include text_form
-      }
-      .delivery__text-form2 {
-        @include text_form
-      }
-      .delivery__text-form3 {
-        @include text_form
-      }
-      
     }
 
     &-confirm {
@@ -161,7 +144,6 @@
       .form {
         height: 60px;
         width: 250px;
-        background-color: lightyellow;
       }
 
       .item-new__content-confirm__box1 {
@@ -170,6 +152,11 @@
       
         .confirm__text-form {
           display: flex;
+
+          input[type="text"] {
+            width: 250px;
+            height: 60px;
+          } 
         }
       }
       .confirm__tax {
@@ -177,6 +164,12 @@
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
+
+
+        input[type="text"] {
+          width: 250px;
+          height: 60px;
+        }  
       }
       .confirm__tax__border {
         height: 10px;
@@ -190,6 +183,7 @@
           @include btn;
           color: white;
           background-color: red;
+          margin-top: 50px;
         }
 
         .item-new__save-btn {
