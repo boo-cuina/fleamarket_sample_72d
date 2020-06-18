@@ -9,17 +9,18 @@
             アカウントをお持ちでない方はこちら
           .form-btn
             = link_to "新規会員登録", "http://localhost:3000/users/new", class: "btn"
+      = form_with model: user do |form|
         .login-container__main__panel__content__form
           %p.title メールアドレス
           .form
-            = text_field :mail, "メールアドレス", class: "input-default"
+            = form.text_field :mail, "メールアドレス", class: "input-default"
 
           %p.title パスワード
           .form
-            = password_field :password, "パスワード", class: "input-default"
+            = form.password_field :password, "パスワード", class: "input-default"
 
           .login-btn
-            = submit_tag "ログイン", class: "btn"
+            = form.submit "ログイン", class: "btn"
 
   .login-container__footer
     %ul.login-container__footer__terms
