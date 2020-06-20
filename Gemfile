@@ -71,3 +71,4 @@ gem 'fog-aws'
 # PAY.JPのgem
 gem 'payjp'
 gem 'ancestry'
+gem 'active_hash'
