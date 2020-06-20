@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.string   "first_name",         null: false
     t.string   "first_name_reading", null: false
     t.integer  "postcode",           null: false
-    t.integer  "prefecture",         null: false
+    t.integer  "prefecture_id",      null: false
     t.string   "city",               null: false
     t.string   "block",              null: false
     t.string   "building"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.integer  "user_id",            null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
