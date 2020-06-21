@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.string   "first_name",         null: false
     t.string   "first_name_reading", null: false
     t.integer  "postcode",           null: false
-    t.integer  "prefecture",         null: false
+    t.integer  "prefecture_id",      null: false
     t.string   "city",               null: false
     t.string   "block",              null: false
     t.string   "building"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.integer  "user_id",            null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
@@ -47,22 +48,23 @@ ActiveRecord::Schema.define(version: 20200615143309) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                            null: false
-    t.text     "description",       limit: 65535, null: false
-    t.string   "size",                            null: false
-    t.integer  "status",                          null: false
-    t.integer  "price",                           null: false
-    t.integer  "shipping_fee",                    null: false
-    t.string   "shipping_fee_cost",               null: false
-    t.integer  "shipping_days",                   null: false
+    t.string   "name",                          null: false
+    t.text     "description",     limit: 65535, null: false
+    t.string   "size",                          null: false
+    t.string   "status",                        null: false
+    t.integer  "price",                         null: false
+    t.string   "shipping_fee",                  null: false
+    t.integer  "shippingfrom_id",               null: false
+    t.string   "shipping_days",                 null: false
     t.integer  "buyer_id"
-    t.integer  "seller_id",                       null: false
-    t.integer  "category_id",                     null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "seller_id",                     null: false
+    t.integer  "category_id",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
+    t.index ["shippingfrom_id"], name: "index_items_on_shippingfrom_id", using: :btree
   end
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
