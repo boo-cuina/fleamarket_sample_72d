@@ -1,0 +1,177 @@
+@mixin require {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 2px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+}
+
+.account {
+  width: 100%;
+  font-size: 15px;
+  background-color: #eeeeee;
+
+  &__header {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-color: #EEEEEE;
+   
+    .furima-logo {
+      height: 70px;
+      width: 250px;
+      margin-top: 40px;
+    } 
+  }
+
+  &__main {
+    display: block;
+    margin: 0;
+    padding: 0;
+  
+    &__content {
+      height: 100vh;
+      overflow: scroll;
+      width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+    
+      &__head {
+        font-size: 22px;
+        padding: 32px;
+        text-align: center;
+      }
+    
+      &__form {
+        height: 700px;
+        padding: 24px 0 40px;
+        max-width: 343px;
+        margin: 0 auto;
+        color: #333333;
+        border-top: 1px solid #f5f5f5;
+
+        .require {
+          @include require
+        }
+
+        .text {
+          font-size: 12px;
+          margin: 2px 0 10px 0;
+        }
+
+        .note {
+          font-size: 12px;
+          margin-bottom: 12px;
+        }
+
+        h2 {
+          margin: 24px 0 0;
+          font-weight: bold;
+        }
+
+        .title {
+          font-weight: bold;
+          display: inline-block;
+        }
+
+        .form {
+          input[type="text"]{
+            height: 30px;
+            width: 100%;
+            margin: 5px 0 8px;
+            border-radius: 5px;
+          }
+          input[type="password"]{
+            height: 30px;
+            width: 100%;
+            margin: 8px 0 0;
+            border-radius: 5px;
+          }
+        }
+
+        .form-name {
+          input[type="text"]{
+            height: 30px;
+            border-radius: 5px;
+            margin: 5px 0 8px;
+          }
+        }
+
+        .form-birthday {
+          select {
+            height: 30px;
+            margin: 5px 0 8px;
+          }
+        }
+
+        .form-btn {
+          margin: 24px 0 48px;
+          display: block;
+          text-align: center;
+          background-color: red;
+          line-height: 48px;
+          border-radius: 5px;
+          .btn {
+            background-color: red;
+            border: 1px solid red;
+            color: white;
+            width: 100%;
+            line-height: 48px;
+            border-radius: 5px;
+          }
+        }
+
+        .form-text {
+          color: #0099eb;
+          text-decoration: none;
+          text-align: right;
+          display: block;
+        }
+
+        .recaptcha {
+          margin: 24px 0 12px;
+          background-color: #f5f5f5;
+          padding: 8px 16px;
+          font-size: 12px;
+          color: #888888;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    height: 200px;
+    width: 100%;
+    background-color: #eeeeee;
+    margin: 0 auto;
+    padding-top: 24px;
+    text-align: center;
+
+    &__terms {
+
+      li {
+        font-size: 12px;
+        display: inline-block;
+        margin: 0 8px 0 8px;
+        text-decoration: none;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &__logo {
+      width: 100%;
+      height: 150px;
+      text-align: center;
+
+      .furima-footer-logo {
+        height: 60px;
+        width: 200px;
+        margin-top: 40px;
+      } 
+    }
+  }
+}

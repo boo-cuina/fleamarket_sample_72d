@@ -1,5 +1,5 @@
 .item-new
-  = render "layouts/header-logo"
+  = render 'layouts/header-logo'
   .item-new__content
     .item-new__content-picture
       .title 
@@ -7,52 +7,52 @@
         .necessary-mark 必須
       %p.note 最大５枚までアップロードできます
       .file-upload-box
-        -# file挿入部
+        = file_field :image, placeholder: "クリックして画像をアップロード", class: "upload-btn"
     .item-new__content-detail
       .title
         %p 商品名
         .necessary-mark 必須
       .detail__text-form1
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
       .title
         %p 商品の説明
         .necessary-mark 必須
       .detail__text-form2
-        -# text_form挿入部
+        = text_area :text, class: "item-new-form"
     .item-new__content-category
       %p 商品の詳細
       .title
         %p カテゴリー
         .necessary-mark 必須
       .category__text-form
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"        
       .title
         %p ブランド 
         .not__necessary-mark 任意
       .category__text-form2
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
       .title
         %p 商品の状態
         .necessary-mark 必須
       .category__text-form3
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
     .item-new__content-delivery
       %p 配送について
       .title
         %p 配送料の負担
         .necessary-mark 必須
       .delivery__text-form1
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
       .title
         %p 発送元の地域
         .necessary-mark 必須
       .delivery__text-form2
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
       .title
         %p 発送までの日数
         .necessary-mark 必須
       .delivery__text-form2
-        -# text_form挿入部
+        = text_field :name, class: "item-new-form"
     .item-new__content-confirm
       %p 価格（￥300〜9,999,999)
       .item-new__content-confirm__box1
@@ -62,20 +62,11 @@
         .confirm__text-form
           %p ￥
           .form
-            -# text_form挿入部
-      .confirm__tax
-        %p 販売手数料（10%）
-        .form
-          -# text_form挿入部
-      .confirm__tax__border
-      .confirm__tax
-        %p 販売利益
-        .form
-          -# text_form挿入部
+            = text_field :price, class: "item-new-form2"
       .btn
         = button_to "出品する", "#", class: "item-new__confirm-btn"
         = button_to "下書きに保存", "#", class: "item-new__save-btn"
         = link_to 'もどる', "#", class: "back-btn"
       %p.caution 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
-    .item-new__footer
+  = render 'layouts/footer-logo'

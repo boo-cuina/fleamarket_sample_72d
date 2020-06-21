@@ -70,3 +70,4 @@ gem 'mini_magick'
 gem 'fog-aws'
 # PAY.JPのgem
 gem 'payjp'
+gem 'ancestry'
