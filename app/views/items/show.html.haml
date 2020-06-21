@@ -1,3 +1,45 @@
-%h1 Items#show
-%p Find me in app/views/items/show.html.haml
-= link_to "#", confirm_item_path
+= render "layouts/header-search"
+
+.item-show
+  .item-show__content
+    .item-show__content-title example
+    .item-show__content-picture
+      .item-show__content-picture__main
+      .item-show__content-picture__sub
+        .picture
+        .picture
+    .item-show__content-price
+      .item-show__content-price__number ￥1000
+      .item-show__content-price__tax (税込) 送料込み
+    .item-show__content-detail
+      %table{border: "1", bordercolor: "#DDDDDD"}
+        %tr
+          %td.column 出品者
+          %td.info
+        %tr
+          %td.column カテゴリー
+          %td.info
+        %tr
+          %td.column ブランド
+          %td.info
+        %tr
+          %td.column 商品のサイズ
+          %td.info
+        %tr
+          %td.column 商品の状態
+          %td.info
+        %tr
+          %td.column 配送料の負担
+          %td.info
+        %tr
+          %td.column 発送元の地域
+          %td.info
+        %tr
+          %td.column 発送日の目安
+          %td.info
+
+      .item-show__content-btn
+        = button_to "購入画面に進む", "#", class: "confirm-btn"
+
+= render "layouts/footer-banner"
+= render "layouts/footer-links"
