@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.requie(:user).permit(:nick_name, :mail, :password, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :postcode, :prefecture, :city, :block, :building)
+      params.requie(:user).permit(:nickname, :email, :encrypted_password, :last_name, :first_name, :last_name_reading, :first_name_reading, :birthday, :postcode, :prefecture, :city, :block, :building)
     end
 
 end
