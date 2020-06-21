@@ -112,14 +112,7 @@
           .product-box__list__body__comment (税込)
 
 -# フッター
-.app-banner
-  .app-banner__contents
-    %h2.app-banner__contents__subtitle だれでもかんたん、人生を変えるフリマアプリ
-    %p.app-banner__contents__text 今すぐ無料ダウンロード！
-    .app-banner__contents__btn
-      = link_to image_tag("Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class:"app-banner__contents__btn__abtn"), '#'
-      = link_to image_tag("google-play-badge.png", class:"app-banner__contents__btn__gbtn"), '#'
-
+= render "layouts/footer-banner"
 = render "layouts/footer-links"
 
 -# 出品アイコン
