@@ -1,1 +1,85 @@
-  
+  .user-mypage
+
+  .user-mypage__header
+    .user-mypage__header__inner
+      .user-mypage__header__inner__up
+        %h1.user-mypage__header__inner__up__logo
+          = image_tag 'logo.png', class: 'furima-logo'
+        .user-mypage__header__inner__up__form
+          .user-mypage__header__inner__up__form__text
+            %p キーワードから探す
+          .user-mypage__header__inner__up__form__icon
+            = image_tag 'icon-search 1.png', class: 'search-logo'
+      .user-mypage__header__inner__down
+        %ul.user-mypage__header__inner__down__left
+          %li.user-mypage__header__inner__down__left__category       
+            %p カテゴリー 
+          %li.user-mypage__header__inner__down__left__brand
+            %p ブランド
+        .user-mypage__header__inner__down__right
+          .user-mypage__header__inner__down__right__mypage
+            %p マイページ        
+
+  .user-mypage__contents
+    .user-mypage__contents__left
+      %ul.user-mypage__contents__left__navi
+        %li.user-mypage__contents__left__navi__list
+          %p 支払い方法
+          .user-mypage__contents__left__navi__list__icon
+          = icon('fas', 'angle-right', class: 'icon')
+        %li.user-mypage__contents__left__navi__list
+          %p ログアウト
+          .user-mypage__contents__left__navi__list__icon
+          = icon('fas', 'angle-right', class: 'icon')
+    .user-mypage__contents__right
+      .user-mypage__contents__right__user-icon
+        = image_tag 'member_photo_noimage_thumb.png', class: 'user-logo'
+        %p フリ太郎
+      .user-mypage__contents__right__purchased-product
+        .user-mypage__contents__right__purchased-product__head
+          %p 購入した商品
+        %ul.user-mypage__contents__right__purchased-product__tab
+          %li.user-mypage__contents__right__purchased-product__tab__during-trading
+            %p 取引中
+          %li.user-mypage__contents__right__purchased-product__tab__pasttransactions
+            %p 過去の取引
+        .user-mypage__contents__right__purchased-product__content
+          %p 取引中の商品がありません
+
+  .user-mypage__footer
+    %ul.user-mypage__footer__up
+      %li.user-mypage__footer__up__cell
+        .user-mypage__footer__up__cell__head
+          %h2 FURIMAについて
+        %ul.user-mypage__footer__up__cell__list
+          %li.user-mypage__footer__up__cell__list__name
+            %p 会社概要（運営会社）
+          %li.user-mypage__footer__up__cell__list__name
+            %p プライバシーポリシー
+          %li.user-mypage__footer__up__cell__list__name
+            %p FURIMA利用規約
+          %li.user-mypage__footer__up__cell__list__name
+            %p ポイントに関する特約
+      %li.user-mypage__footer__up__cell
+        .user-mypage__footer__up__cell__head
+          %h2 FURIMAを見る
+        %ul.user-mypage__footer__up__cell__list
+          %li.user-mypage__footer__up__cell__list__name
+            %p カテゴリー一覧
+          %li.user-mypage__footer__up__cell__list__name
+            %p ブランド一覧
+      %li.user-mypage__footer__up__cell
+        .user-mypage__footer__up__cell__head
+          %h2 ヘルプ&ガイド
+        %ul.user-mypage__footer__up__cell__list
+          %li.user-mypage__footer__up__cell__list__name
+            %p FURIMAガイド
+          %li.user-mypage__footer__up__cell__list__name
+            %p FURIMAロゴ利用ガイドライン
+          %li.user-mypage__footer__up__cell__list__name
+            %p お知らせ
+    .user-mypage__footer__down
+      .user-mypage__footer__down__icon
+        = image_tag 'logo-white.png', class: 'white-logo'
+      .user-mypage__footer__down__copyright
+        %p © FURIMA
