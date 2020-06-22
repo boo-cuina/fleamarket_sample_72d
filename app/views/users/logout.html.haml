@@ -1,0 +1,17 @@
+-# ヘッダー
+= render "layouts/header-search"
+
+-# メイン
+.user-logout
+  .user-logout__container
+    .user-logout__container__btn ログアウト
+
+-# フッター
+= render "layouts/footer-banner"
+= render "layouts/footer-links"
+
+-# 出品アイコン
+%a{ href: '#' }
+  .sell-btn
+    %span.sell-btn__text 出品する
+    = image_tag 'icon_camera.png', class: 'sell-btn__icon'
