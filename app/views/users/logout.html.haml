@@ -1,13 +1,16 @@
 -# ヘッダー
-= render "layouts/header-search"
+= render "layouts/header-searchlogin"
 
 -# メイン
 .user-logout
   .user-logout__container
-    .user-logout__container__btn ログアウト
+    .user-logout__container__btn 
+      = link_to '#', class: "" do
+        %p ログアウト
+-# バナー
+= render "layouts/footer-banner"
 
 -# フッター
-= render "layouts/footer-banner"
 = render "layouts/footer-links"
 
 -# 出品アイコン
