@@ -8,7 +8,7 @@
           %p.text
             アカウントをお持ちでない方はこちら
           .form-btn
-            = link_to "新規会員登録", "http://localhost:3000/users/new", class: "btn"
+            = link_to "新規会員登録", '/users/sign_in', class: "btn"
         .login-container__main__panel__content__form
           %p.title メールアドレス
           .form
@@ -23,9 +23,9 @@
 
   .login-container__footer
     %ul.login-container__footer__terms
-      %li= link_to 'プライバシーポリシー', "https://www.merucari.com/jp/privacy/"
-      %li= link_to '利用規約', "https://www.mercari.com/jp/tops"
-      %li= link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei"
+      %li= link_to 'プライバシーポリシー', "#"
+      %li= link_to '利用規約', "#"
+      %li= link_to '特定商取引に関する表記', "#"
 
     .login-container__footer__logo
       = image_tag 'logo-white.png', class: 'furima-footer-logo'
