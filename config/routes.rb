@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-    root to: 'items#index'
+    root to: 'users#card-new'
     resources :items do
       member do
         get :confirm

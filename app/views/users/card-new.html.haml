@@ -1,0 +1,45 @@
+-# ヘッダー
+= render "layouts/header-searchlogin"
+
+-# メイン
+.card-new
+  .card-new__container
+    .card-new__container__title
+      %p クレジットカード情報入力
+    .card-new__container__inner
+      .card-new__container__inner__list
+        .card-new__container__inner__list__head
+          %label カード番号
+          %span 必須
+          = text_field :number, placeholder: "半角数字のみ", class: "credit-number"
+          
+          = image_tag 'logo_download_ph001.png'
+          = image_tag 'logo_download_ph002.png'
+          = image_tag 'jcb-logomark-img-03.gif'
+          = image_tag 'amex-logomark-img-06.gif'
+          = image_tag 'logo_download_ph003.png'
+          = image_tag 'discover-logomark-img-06.gif'
+
+        .card-new__container__inner__list__expiration
+
+        .card-new__container__inner__list__security
+
+        .card-new__container__inner__list__add
+          = link_to '#', class: "" do
+            %p 追加する
+        
+
+
+
+
+
+
+
+-# バナー
+= render "layouts/footer-banner"
+
+-# フッター
+= render "layouts/footer-links"
+
+-# 出品アイコン
+= render "layouts/sell-btn"
