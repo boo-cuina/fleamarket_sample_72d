@@ -1,0 +1,39 @@
+-# ヘッダー
+= render "layouts/header-searchlogin"
+
+-# メイン
+.main
+  .main__contents
+    .main__contents__left
+      %ul.main__contents__left__navi
+        %li.main__contents__left__navi__list
+          %p 支払い方法
+          .main__ontents__left__navi__list__icon
+            = icon('fas', 'angle-right', class: 'icon')
+        %li.main__contents__left__navi__list
+          %p ログアウト
+          .main__contents__left__navi__list__icon
+            = icon('fas', 'angle-right', class: 'icon')
+    .main__contents__right
+      .main__contents__right__user-icon
+        = image_tag 'member_photo_noimage_thumb.png', class: 'user-logo'
+        %p フリ太郎
+      .main__contents__right__purchased-product
+        .main__contents__right__purchased-product__head
+          %p 購入した商品
+        %ul.main__contents__right__purchased-product__tab
+          %li.main__contents__right__purchased-product__tab__during-trading
+            %p 取引中
+          %li.main__contents__right__purchased-product__tab__pasttransactions
+            %p 過去の取引
+        .main__contents__right__purchased-product__content
+          %p 取引中の商品がありません
+
+-# バナー
+= render "layouts/footer-banner"
+
+-# フッター
+= render "layouts/footer-links"
+
+-# 出品アイコン
+= render "layouts/sell-btn"
