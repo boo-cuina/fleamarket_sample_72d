@@ -1,0 +1,141 @@
+.account
+  .account__header
+    = render 'layouts/header-logo'
+  .account__main
+    .account__main__content
+      %h1.account__main__content__head
+        会員情報入力
+      .account__main__content__form
+        %p.title ニックネーム
+        %span.require
+          必須
+        .form
+          = text_field :nickname, "例）フリマ太郎", class: "input-default"
+
+        %p.title メールアドレス
+        %span.require
+          必須
+        .form
+          = text_field :email, "例）PC・携帯どちらでも可", class: "input-default"
+
+        %p.title パスワード
+        %span.require
+          必須
+        .form
+          = password_field :encrypted_password, "例）7文字以上の半角英数字", class: "input-default"
+          %p.text ※英字と数字の両方を含めて設定してください
+          = check_box_tag :password_disp
+          = label :password_disp, "パスワードを表示する"
+
+        %h2 本人確認
+        %p.note 安心・安全にご利用いただくために、お客様の本人情報の登録にご協力ください。他のお客様に公開されることはありません。
+
+        %p.title お名前（全角）
+        %span.require
+          必須
+        .form-name
+          = text_field :last_name, "例）山田", class: "input-default-half"
+          = text_field :first_name, placeholder: "例太郎", class: "input-default-half"
+
+        %p.title お名前カナ（全角）
+        %span.require
+          必須
+        .form-name
+          = text_field :last_name_reading, "例）ヤマダ", class: "input-default-half"
+          = text_field :first_name_reading, "例）タロウ", class: "input-default-half"
+
+        %p.title 電話番号
+        %span.require
+          必須
+        .form
+          = text_field :phone_number, class: "input-default"
+        
+        %p.title 生年月日
+        %span.require
+          必須
+        .form-birthday
+          = select_tag :birthday, options_for_select(1920..2020), autofocus: 'true', class: 'birth-year'
+          年
+          = select_tag :birthday, options_for_select(1..12), autofocus: 'true', class: 'birth-month'
+          月
+          = select_tag :birthday, options_for_select(1..31), autofocus: 'true', class: 'birth-day'
+          日
+
+        %p.title 郵便番号
+        %span.require
+          必須
+        .form-name
+          = text_field :postcode, class: "input-default"
+
+        %p.title 都道府県
+        %span.require
+          必須
+        .form-name
+          = text_field :prefecture_id, class: "input-default"
+
+        %p.title 市区町村
+        %span.require
+          必須
+        .form
+          = text_field :city, class: "input-default"
+
+        %p.title 番地
+        %span.require
+          必須
+        .form
+          = text_field :block, class: "input-default"
+
+        %p.title マンション名
+        .form
+          = text_field :building, class: "inpput-default"
+          %p.text ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+        %p.text
+          ※本人情報未登録のお客様が対象となります。
+        .form-btn
+          = submit_tag :"登録する", class: "btn"
+
+        %p.form-text
+          = link_to "#" do
+            本人情報の登録について
+            %i.fas.fa-angle-right.fa-lg
+
+        %p.recaptcha
+          This site is protected by reCAPTCHA and the %Google
+          = link_to "#" do
+            Privacy Policy
+          and
+          = link_to "#" do
+            Teams of Service
+          apply.
+
+  = render "layouts/footer-logo"
+
+
+
+-# <h2>Log in</h2>
+
+-# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+-#   <div class="field">
+-#     <%= f.label :email %><br />
+-#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= f.label :password %><br />
+-#     <%= f.password_field :password, autocomplete: "current-password" %>
+-#   </div>
+
+-#   <% if devise_mapping.rememberable? %>
+-#     <div class="field">
+-#       <%= f.check_box :remember_me %>
+-#       <%= f.label :remember_me %>
+-#     </div>
+-#   <% end %>
+
+-#   <div class="actions">
+-#     <%= f.submit "Log in" %>
+-#   </div>
+-# <% end %>
+
+-# <%= render "devise/shared/links" %>
