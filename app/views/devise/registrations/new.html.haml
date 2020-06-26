@@ -10,19 +10,19 @@
         %span.require
           必須
         .form
-          = text_field :nickname, "例）フリマ太郎", class: "input-default"
+          = text_field_tag :nickname, "例）フリマ太郎", class: "input-default"
 
         %p.title メールアドレス
         %span.require
           必須
         .form
-          = text_field :email, "例）PC・携帯どちらでも可", class: "input-default"
+          = text_field_tag :email, "例）PC・携帯どちらでも可", class: "input-default"
 
         %p.title パスワード
         %span.require
           必須
         .form
-          = password_field :encrypted_password, "例）7文字以上の半角英数字", class: "input-default"
+          = password_field_tag :encrypted_password, "例）7文字以上の半角英数字", class: "input-default"
           %p.text ※英字と数字の両方を含めて設定してください
           = check_box_tag :password_disp
           = label :password_disp, "パスワードを表示する"
@@ -34,15 +34,15 @@
         %span.require
           必須
         .form-name
-          = text_field :last_name, "例）山田", class: "input-default-half"
-          = text_field :first_name, placeholder: "例太郎", class: "input-default-half"
+          = text_field_tag :last_name, "例）山田", class: "input-default-half"
+          = text_field_tag :first_name, "例）例太郎", class: "input-default-half"
 
         %p.title お名前カナ（全角）
         %span.require
           必須
         .form-name
-          = text_field :last_name_reading, "例）ヤマダ", class: "input-default-half"
-          = text_field :first_name_reading, "例）タロウ", class: "input-default-half"
+          = text_field_tag :last_name_reading, "例）ヤマダ", class: "input-default-half"
+          = text_field_tag :first_name_reading, "例）タロウ", class: "input-default-half"
 
         %p.title 電話番号
         %span.require
