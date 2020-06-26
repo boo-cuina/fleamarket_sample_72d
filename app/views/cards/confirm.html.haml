@@ -1,0 +1,27 @@
+-# ヘッダー
+= render "layouts/header-searchlogin"
+
+-# メイン
+.card-index
+  .card-index__container
+    .card-index__container__title
+      %p 支払い方法
+    .card-index__container__inner
+      .card-index__container__inner__list
+        %p クレジットカード一覧
+      .card-index__container__inner__btn
+        .card-index__container__inner__btn__box
+          .card-index__container__inner__btn__box__icon
+            = icon('fas', 'credit-card', class: 'icon')
+          .card-index__container__inner__btn__box__add
+            = link_to '#', class: "" do
+              %p クレジットカードを追加する
+        
+-# バナー
+= render "layouts/footer-banner"
+
+-# フッター
+= render "layouts/footer-links"
+
+-# 出品アイコン
+= render "layouts/sell-btn"
