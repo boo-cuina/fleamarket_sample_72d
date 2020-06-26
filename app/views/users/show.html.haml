@@ -1,31 +1,39 @@
-.login-container
-  .login-container__header
-    = image_tag 'logo.png', class: 'furima-logo'
-  .login-container__main
-    .login-container__main__panel
-      .login-container__main__panel__content
-        .login-container__main__panel__content__head
-          %p.text
-            アカウントをお持ちでない方はこちら
-          .form-btn
-            = link_to "新規会員登録", "http://localhost:3000/users/new", class: "btn"
-        .login-container__main__panel__content__form
-          %p.title メールアドレス
-          .form
-            = text_field :mail, "メールアドレス", class: "input-default"
+-# ヘッダー
+= render "layouts/header-searchlogin"
 
-          %p.title パスワード
-          .form
-            = password_field :password, "パスワード", class: "input-default"
+-# メイン
+.main
+  .main__contents
+    .main__contents__left
+      %ul.main__contents__left__navi
+        %li.main__contents__left__navi__list
+          %p 支払い方法
+          .main__ontents__left__navi__list__icon
+            = icon('fas', 'angle-right', class: 'icon')
+        %li.main__contents__left__navi__list
+          %p ログアウト
+          .main__contents__left__navi__list__icon
+            = icon('fas', 'angle-right', class: 'icon')
+    .main__contents__right
+      .main__contents__right__user-icon
+        = image_tag 'member_photo_noimage_thumb.png', class: 'user-logo'
+        %p フリ太郎
+      .main__contents__right__purchased-product
+        .main__contents__right__purchased-product__head
+          %p 購入した商品
+        %ul.main__contents__right__purchased-product__tab
+          %li.main__contents__right__purchased-product__tab__during-trading
+            %p 取引中
+          %li.main__contents__right__purchased-product__tab__pasttransactions
+            %p 過去の取引
+        .main__contents__right__purchased-product__content
+          %p 取引中の商品がありません
 
-          .login-btn
-            = submit_tag "ログイン", class: "btn"
+-# バナー
+= render "layouts/footer-banner"
 
-  .login-container__footer
-    %ul.login-container__footer__terms
-      %li= link_to 'プライバシーポリシー', "https://www.merucari.com/jp/privacy/"
-      %li= link_to '利用規約', "https://www.mercari.com/jp/tops"
-      %li= link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei"
+-# フッター
+= render "layouts/footer-links"
 
-    .login-container__footer__logo
-      = image_tag 'logo-white.png', class: 'furima-footer-logo'
+-# 出品アイコン
+= render "layouts/sell-btn"

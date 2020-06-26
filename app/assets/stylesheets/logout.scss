@@ -105,92 +105,28 @@
 }
 
 // メイン
-.main {
+.user-logout {
   padding-top: 10px;
-  &__contents {
-    display: flex;
+  padding-bottom: 10px;
+  background-color: #f5f5f5;
+  &__container {
+    background-color: white;
+    margin: 40px auto;
     width: 1020px;
-    margin: 40px auto 0;
-    padding: 0 0 40px;
-    &__left {
-      width: 280px;
-      margin: 0 40px 0 0;
-      &__navi {
-        background-color: white;
-        &__list {
-          display: flex;
-          position: relative;
-          min-height: 48px;
-          padding: 16px;
-          font-size: 14px;
-          color: #333;
-          border-top: solid 1px #eeeeee;
-          cursor: pointer;
-          .icon {
-            position: absolute;
-            top: 50%;
-            right: 16px;
-            color: #ccc;
-            transform: translate(0, -50%);
-            transition: all ease-out .2s;
-          }
-        }
-      }
-    }
-    &__right {
-      width: 700px;
-      &__user-icon {
-        background-color: gray;
-        height: 108px;
-        border: solid 1px #eeeeee;
-        text-align: center;
-        .user-logo {
-          width: 60px;
-          height: 60px;
-          border: 0;
-          cursor: pointer;
-          padding: 8px;
-        }
-      }
-
-      &__purchased-product {
-        background-color: white;
-        height: 400px;
-        margin: 40px 0 0;
-        &__head {
-          padding: 0 16px;
-          background-color: #eeeeee;
-          font-size: 16px;
-          line-height: 72px;
-          font-weight: bold;
-        }
-        &__tab {
-          height: 74px;
-          line-height: 74px;
-          display: flex;
-          text-align: center;
-          font-weight: bold;
-          &__during-trading {
-            width: 50%;
-            font-size: 16px;
-            border-top: solid 1px #3CCACE;
-            cursor: pointer;
-          }
-          &__pasttransactions {
-            background-color: #dddddd;
-            width: 50%;
-            font-size: 16px;
-            cursor: pointer;
-          }
-        }
-        &__content {
-          padding: 114px 0px;
-          text-align: center;
-          font-size: 16px;
-          color: #ccc;
-          cursor: pointer;
-        }
-      }
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    padding: 64px;
+    &__btn {
+      max-width: 320px;
+      height: 50px;
+      line-height: 50px;
+      margin: 0 auto;
+      background: #3CCACE;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: white;
+       }
     }
   }
 }
