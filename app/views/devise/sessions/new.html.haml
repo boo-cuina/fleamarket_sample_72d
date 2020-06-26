@@ -12,11 +12,11 @@
         .login-container__main__panel__content__form
           %p.title メールアドレス
           .form
-            = text_field_tag :email, "メールアドレス", class: "input-default"
+            = text_field_tag :email, "", placeholder: "例）PC・携帯どちらでも可", class: "input-default"
 
           %p.title パスワード
           .form
-            = password_field_tag :encrypted_password, "パスワード", class: "input-default"
+            = password_field_tag :encrypted_password, "", placeholder: "例）7文字以上の半角英数字", class: "input-default"
 
           .login-btn
             = submit_tag "ログイン", class: "btn"
