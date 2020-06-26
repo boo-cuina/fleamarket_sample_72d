@@ -13,4 +13,5 @@ Rails.application.routes.draw do
         get :confirm
       end
     end
+    get 'sessions/destroy'
 end
