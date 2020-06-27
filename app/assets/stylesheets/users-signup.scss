@@ -31,8 +31,6 @@
     padding: 0;
   
     &__content {
-      height: 100vh;
-      overflow: scroll;
       width: 600px;
       margin: 0 auto;
       background-color: #fff;
@@ -44,7 +42,6 @@
       }
     
       &__form {
-        height: 700px;
         padding: 24px 0 40px;
         max-width: 343px;
         margin: 0 auto;
