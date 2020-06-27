@@ -6,14 +6,14 @@
   .main__contents
     .main__contents__left
       %ul.main__contents__left__navi
-        %li.main__contents__left__navi__list
-          %p 支払い方法
-          .main__ontents__left__navi__list__icon
-            = icon('fas', 'angle-right', class: 'icon')
-        %li.main__contents__left__navi__list
-          %p ログアウト
-          .main__contents__left__navi__list__icon
-            = icon('fas', 'angle-right', class: 'icon')
+        %li
+          = link_to "/cards/show", class: 'main__contents__left__navi__list' do
+            支払い方法
+            = icon('fas', 'angle-right', class: 'main__contents__left__navi__list__icon')
+        %li
+          = link_to "/sessions/destroy", class: 'main__contents__left__navi__list' do
+            ログアウト
+            = icon('fas', 'angle-right', class: 'main__contents__left__navi__list__icon')
     .main__contents__right
       .main__contents__right__user-icon
         = image_tag 'member_photo_noimage_thumb.png', class: 'user-logo'
