@@ -1,7 +1,6 @@
 .item-confirm
   .item-confirm__header
-    = image_tag 'logo.png', class: 'item-new__logo'
-    -# = render "header" をするところ
+    = render 'layouts/header-logo'
   .item-confirm__content
     .item-confirm__content-title 
       %p 購入内容の確認
@@ -28,5 +27,5 @@
         = link_to "変更する", "#"
     .item-confirm__content-confirm
       = button_to "購入する", "#", class: "confirm-btn"
-    .item-confirm__footer
+    = render 'layouts/footer-logo'
       
