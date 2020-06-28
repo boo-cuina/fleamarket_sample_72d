@@ -2,7 +2,7 @@
   .header-container
     .main-header
       .furima-logo
-        = link_to image_tag("logo.png", class:"furima-logo"), '/'
+        = link_to image_tag("logo.png", class:"furima-logo"), root_path
       .form
         .search-box
           %input{type: "search", class: "search-box__text", placeholder: "キーワードから探す"}
@@ -20,8 +20,8 @@
         
       %ul.rightlist
         %li.rightlist__conts
-          = link_to '/users/sign_in', class: "" do
+          = link_to user_session_path, class: "" do
             ログイン
         %li.rightlist__conts
-          = link_to '/users/sign_up', class: "" do
+          = link_to new_user_registration_path, class: "" do
             新規会員登録
