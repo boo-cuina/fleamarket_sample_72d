@@ -10,7 +10,8 @@
         %span.require
           必須
         .form
-          = text_field_tag :nickname, "", placeholder: "例）フリマ太郎", class: "input-default"
+          = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+          = f.text_field :nickname, "", placeholder: "例）フリマ太郎", class: "input-default"
 
         %p.title メールアドレス
         %span.require
