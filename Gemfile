@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -60,6 +61,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'faker'
 end
 
 group :production do
