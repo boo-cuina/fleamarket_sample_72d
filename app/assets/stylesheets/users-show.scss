@@ -107,6 +107,7 @@
 // メイン
 .main {
   padding-top: 10px;
+  background-color: #f8f8f8;
   &__contents {
     display: flex;
     width: 1020px;
@@ -118,15 +119,15 @@
       &__navi {
         background-color: white;
         &__list {
-          display: flex;
+          display: block;
           position: relative;
           min-height: 48px;
           padding: 16px;
           font-size: 14px;
           color: #333;
           border-top: solid 1px #eeeeee;
-          cursor: pointer;
-          .icon {
+          text-decoration: none;
+          &__icon {
             position: absolute;
             top: 50%;
             right: 16px;

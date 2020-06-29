@@ -1,7 +1,7 @@
 = render "layouts/header-search"
 
 -# メインコンテンツ
-.main
+.main-toppage
 
   = render "layouts/header-banner"
 
@@ -110,7 +110,4 @@
 = render "layouts/footer-links"
 
 -# 出品アイコン
-%a{ href: '#' }
-  .sell-btn
-    %span.sell-btn__text 出品する
-    = image_tag 'icon_camera.png', class: 'sell-btn__icon'
+= render "layouts/sell-btn"

@@ -1,6 +1,6 @@
 .login-container
   .login-container__header
-    = image_tag 'logo.png', class: 'furima-logo'
+    = render 'layouts/header-logo'
   .login-container__main
     .login-container__main__panel
       .login-container__main__panel__content
@@ -21,7 +21,8 @@
           .login-btn
             = submit_tag "ログイン", class: "btn"
 
-= render "layouts/footer-logo"
+  = render "layouts/footer-logo"
+
 
 
 -# ーーーーーファイルを作った際に記述されていたコードーーーーー
