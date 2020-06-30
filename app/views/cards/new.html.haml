@@ -2,26 +2,72 @@
 = render "layouts/header-searchlogin"
 
 -# メイン
-.card-show
-  .card-show__container
-    .card-show__container__title
-      %p 支払い方法
-    .card-show__container__inner
-      .card-show__container__inner__list
-        %p クレジットカード一覧
-      .card-show__container__inner__btn
-        .card-show__container__inner__btn__box
-          .card-show__container__inner__btn__box__info
-            .card-show__container__inner__btn__box__info__data
-              = image_tag 'logo_download_ph001.png', class: 'visa-logo'
-            .card-show__container__inner__btn__box__info__data
-              %p **** **** 4242
-            .card-show__container__inner__btn__box__info__data
-              %p 12/20
-          .card-show__container__inner__btn__box__delete
-            = link_to '#', class: "" do
-              %p 削除する
-        
+.card-new
+  .card-new__container
+    .card-new__container__title
+      クレジットカード情報入力
+    .card-new__container__inner
+      .card-new__container__inner__list
+        .card-new__container__inner__list__head
+          %label.payment__card カード番号
+          %span.require__form 必須
+        = text_field_tag "number", "", class: "number input__deafult", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+        .card-new__container__inner__list__logo
+          .card-new__container__inner__list__logo__picture
+            = image_tag 'logo_download_ph001.png'
+            = image_tag 'logo_download_ph002.png'
+            = image_tag 'jcb-logomark-img-03.gif'
+            = image_tag 'amex-logomark-img-06.gif'
+            = image_tag 'logo_download_ph003.png'
+            = image_tag 'discover-logomark-img-06.gif'
+
+        .card-new__container__inner__list__expiration
+          %label.payment__card 有効期限
+          %span.require__form 必須
+          .select__box.top__margin
+            .select__box__half
+              %select.select__default#exp_month{name: "exp_month", type: "text"}
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              %i
+                = icon('fas', 'chevron-down')
+              %span 月
+            .select__box__half
+              .icon
+              %select.select__default#exp_year{name: "exp_year", type: "text"}
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+                %option{value: "2030"}30
+              %i
+                = icon('fas', 'chevron-down')
+              %span  年
+        .card-new__container__inner__list__security
+          %label セキュリティーコード
+          %span.require__form 必須
+          = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+
+        .card-new__container__inner__list__add
+          = link_to '#', class: "" do
+            %p 追加する
+
 -# バナー
 = render "layouts/footer-banner"
 
