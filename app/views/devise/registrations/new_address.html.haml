@@ -3,53 +3,72 @@
     = render 'layouts/header-logo'
   .account__main
     .account__main__content
+      .form-title
+        %p.title お名前（全角）
+        %span.require
+          必須
+      .form-name
+        = text_field :last_name, "", placeholder: "例）山田", class: "input-default-half"
+        = text_field :first_name, "", placeholder: "例）例太郎", class: "input-default-half"
 
+      .form-title
+        %p.title お名前カナ（全角）
+        %span.require
+          必須
+      .form-name
+        = text_field :last_name_reading, "", placeholder: "例）ヤマダ", class: "input-default-half"
+        = text_field :first_name_reading, "", placeholder: "例）タロウ", class: "input-default-half"
+
+      .form-title
         %p.title 郵便番号
         %span.require
           必須
-        .form-name
-          = text_field :postcode, class: "input-default"
+      .form-name
+        = text_field :postcode, class: "input-default"
 
+      .form-title
         %p.title 都道府県
         %span.require
           必須
-        .form-name
-          = text_field :prefecture_id, class: "input-default"
+      .form-name
+        = text_field :prefecture_id, class: "input-default"
 
+      .form-title
         %p.title 市区町村
         %span.require
           必須
-        .form
-          = text_field :city, class: "input-default"
+      .form
+        = text_field :city, class: "input-default"
 
+      .form-title
         %p.title 番地
         %span.require
           必須
-        .form
-          = text_field :block, class: "input-default"
+      .form
+        = text_field :block, class: "input-default"
 
-        %p.title マンション名
-        .form
-          = text_field :building, class: "inpput-default"
-          %p.text ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      %p.title2 マンション名
+      .form
+        = text_field :building, class: "input-default"
+        %p.text ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-        %p.text
-          ※本人情報未登録のお客様が対象となります。
-        .form-btn
-          = submit_tag :"登録する", class: "btn"
+      %p.text
+        ※本人情報未登録のお客様が対象となります。
+      .form-btn
+        = submit_tag :"登録する", class: "btn"
 
-        %p.form-text
-          = link_to "#" do
-            本人情報の登録について
-            %i.fas.fa-angle-right.fa-lg
+      %p.form-text
+        = link_to "#" do
+          本人情報の登録について
+          %i.fas.fa-angle-right.fa-lg
 
-        %p.recaptcha
-          This site is protected by reCAPTCHA and the %Google
-          = link_to "#" do
-            Privacy Policy
-          and
-          = link_to "#" do
-            Teams of Service
-          apply.
+      %p.recaptcha
+        This site is protected by reCAPTCHA and the %Google
+        = link_to "#" do
+          Privacy Policy
+        and
+        = link_to "#" do
+          Teams of Service
+        apply.
 
   = render "layouts/footer-logo"
