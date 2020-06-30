@@ -1,0 +1,32 @@
+-# ヘッダー
+= render "layouts/header-searchlogin"
+
+-# メイン
+.card-show
+  .card-show__container
+    .card-show__container__title
+      %p 支払い方法
+    .card-show__container__inner
+      .card-show__container__inner__list
+        %p クレジットカード一覧
+      .card-show__container__inner__btn
+        .card-show__container__inner__btn__box
+          .card-show__container__inner__btn__box__info
+            .card-show__container__inner__btn__box__info__data
+              = image_tag 'logo_download_ph001.png', class: 'visa-logo'
+            .card-show__container__inner__btn__box__info__data
+              %p **** **** 4242
+            .card-show__container__inner__btn__box__info__data
+              %p 12/20
+          .card-show__container__inner__btn__box__delete
+            = link_to '#', class: "" do
+              %p 削除する
+        
+-# バナー
+= render "layouts/footer-banner"
+
+-# フッター
+= render "layouts/footer-links"
+
+-# 出品アイコン
+= render "layouts/sell-btn"
