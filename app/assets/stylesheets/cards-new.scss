@@ -105,7 +105,7 @@
 }
 
 // メイン 
-.card-show {
+.card-new {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #f5f5f5;
@@ -125,46 +125,40 @@
       padding: 64px;
       border-top: 1px solid #f5f5f5;
       text-align: center;
+
       &__list {
-        max-width: 320px;
+        max-width: 343px;
         margin: 0 auto;
         text-align: left;
-        font-weight: bold;
       }
-      &__btn {
-        padding: 24px 0;
-        border-bottom: 1px solid #eee;
+      &__head {
+        display: flex;
+      }
+      &__logo {
+        display: flex;
+      }
+
         &__box {
+          background: #3CCACE;
           max-width: 320px;
           margin: 0 auto;
-          display: flex;
-          position: relative;
-          &__info {
-            font-size: 14px;
-            text-align: left;
-            &__data {
-              margin-right: 16px;
-              .visa-logo {
-                width: 49px;
-              }
-            }
-          }
-          &__delete {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 4px 6px;
-            cursor: pointer;
-            border-radius: 3px;
-            border: solid 1px #3CCACE;
-            a {
-              text-decoration: none;
-              color: #3CCACE;
-            }
-          }
+
+          padding: 15px 51px;
+          font-size: 14px;
+
+
         }
-      }
-    }
+
+          &__add {
+            cursor: pointer;
+          a {
+            text-decoration: none;
+            color: white;
+           }
+          }
+        
+        }
+    
   }
 }
 
