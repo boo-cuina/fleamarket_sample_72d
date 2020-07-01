@@ -2,12 +2,12 @@
   .account__header
     = render 'layouts/header-logo'
   .account__main
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
     .account__main__content
       %h1.account__main__content__head
         会員情報入力
       .account__main__content__form
-        = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' local: true do |f|
-          = render "devise/shared/error_messages", resource: @user
         %p.title ニックネーム
         %span.require
           必須
@@ -17,7 +17,7 @@
         %span.require
           必須
         .form
-        = f.text_field :email, "", placeholder: "例）PC・携帯どちらでも可", class: "input-default"
+          = f.text_field :email, "", placeholder: "例）PC・携帯どちらでも可", class: "input-default"
 
         %p.title パスワード
         %span.require
