@@ -7,6 +7,18 @@
   padding: 2px 4px;
 }
 
+@mixin btn {
+  height: 40px;
+  width: 300px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+}
+
 .account__main__content {
   text-align: center;
   padding: 40px 0;
@@ -21,11 +33,24 @@
   .title2 {
     margin: 10px 0;
   }
-
-  .text {
+  
+  .caution {
+    margin-top: 20px;
     font-size: 10px;
   }
 
+  .btn {
+    @include btn
+  }
+
+  .form-text {
+    margin-top: 20px;
+  }
+
+  .recaptcha {
+    font-size: 10px;
+    margin-top: 20px;
+  }
 }
 
 .require {
