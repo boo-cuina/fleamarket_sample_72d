@@ -29,6 +29,15 @@
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 
+@mixin require {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  background: #3CCACE;
+  font-size: 12px;
+}
+
 @mixin exp-monthyear {
   position: relative;
   z-index: 2;
@@ -162,12 +171,7 @@
                 font-size: 14px;
               }
               .require {
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: #fff;
-                background: #3CCACE;
-                font-size: 12px;
+                @include require;
               }
               &__number {
                 .card-number {
@@ -204,12 +208,7 @@
                 font-size: 14px;
               }
               .require {
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: #fff;
-                background: #3CCACE;
-                font-size: 12px;
+                @include require;
               }
               &__select-month {
                 width: calc(50% - 3px);
@@ -246,12 +245,7 @@
 
               }
               .require {
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: #fff;
-                background: #3CCACE;
-                font-size: 12px;
+                @include require;
               }
               &__code
                .security-number {
