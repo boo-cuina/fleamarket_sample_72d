@@ -38,6 +38,13 @@
   font-size: 12px;
 }
 
+@mixin select-monthyear {
+  width: calc(50% - 3px);
+  margin: 8px 0 0;
+  display: inline-block;
+}
+
+
 @mixin exp-monthyear {
   position: relative;
   z-index: 2;
@@ -211,9 +218,7 @@
                 @include require;
               }
               &__select-month {
-                width: calc(50% - 3px);
-                margin: 8px 0 0;
-                display: inline-block;
+                @include select-monthyear;
                 .exp-month {
                   @include exp-monthyear;
                 }
@@ -223,9 +228,7 @@
                 }
               }
               &__select-year {
-                width: calc(50% - 3px);
-                margin: 8px 0 0;
-                display: inline-block;
+                @include select-monthyear;
                 .exp-year {
                   @include exp-monthyear;
                 }
