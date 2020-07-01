@@ -69,7 +69,8 @@
  
           -# 追加するボタン
           .card-new__container__info__inner__form__add 
-            = submit_tag "追加する", class: "add-btn", id: "payment_card_submit-button"
+            = link_to '#', class: "add-btn" do
+              %p 追加する
 
 -# バナー
 = render "layouts/footer-banner"
