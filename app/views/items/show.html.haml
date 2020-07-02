@@ -14,7 +14,7 @@
           = image_tag @third_photo.image
     .item-show__content-price
       .item-show__content-price__number
-        = @item.price
+        = @item.price.to_i + @item.shipping_fee.to_i
       .item-show__content-price__tax
         (税込) 送料込み
     .item-show__content-detail
