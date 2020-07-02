@@ -23,7 +23,7 @@
           %td.column
             出品者
           %td.info
-            
+            = @item.seller.nickname
         %tr
           %td.column
             カテゴリー
@@ -47,7 +47,6 @@
             = @item.shipping_fee_cost
         %tr
           %td.column
-            発送元の地域
           %td.info
         %tr
           %td.column
