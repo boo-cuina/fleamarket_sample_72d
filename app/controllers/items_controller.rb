@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @first_photo = @item.photos.find(1)
     @second_photo = @item.photos.find(2)
     @third_photo = @item.photos.find(3)
+    @seller_address = @item.seller.addresses.find(1)
   end
 
   def edit
