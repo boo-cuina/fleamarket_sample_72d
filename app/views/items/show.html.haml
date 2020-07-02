@@ -6,9 +6,12 @@
       = @item.name
     .item-show__content-picture
       .item-show__content-picture__main
+        = image_tag @first_photo.image
       .item-show__content-picture__sub
         .picture
+          = image_tag @second_photo.image
         .picture
+          = image_tag @third_photo.image
     .item-show__content-price
       .item-show__content-price__number
         = @item.price

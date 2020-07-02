@@ -11,6 +11,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id]) 
+    @first_photo = @item.photos.find(1)
+    @second_photo = @item.photos.find(2)
+    @third_photo = @item.photos.find(3)
   end
 
   def edit
