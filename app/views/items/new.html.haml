@@ -32,19 +32,19 @@
           %p サイズ 
           .necessary-mark 必須
         .category__text-form2
-          = f.text_field :size, class: "item-new-form"
+          = f.select :size, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"]],{include_blank: "選択して下さい"}, {class: "item-new-form"}
         .title
           %p 商品の状態
           .necessary-mark 必須
         .category__text-form3
-          = f.text_field :status, class: "item-new-form"
+          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
       .item-new__content-delivery
         %p 配送について
         .title
           %p 配送料の負担
           .necessary-mark 必須
         .delivery__text-form1
-          = f.text_field :shipping_fee, class: "item-new-form"
+          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
         .title
           %p 発送元の地域
           .necessary-mark 必須
@@ -54,7 +54,7 @@
           %p 発送までの日数
           .necessary-mark 必須
         .delivery__text-form2
-          = f.text_field :shipping_days, class: "item-new-form"
+          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
       .item-new__content-confirm
         %p 価格（￥300〜9,999,999)
         .item-new__content-confirm__box1
