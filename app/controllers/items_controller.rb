@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id]) 
+    @first_photo = @item.photos[0]
+    @photos = @item.photos.all
+    @seller_address = @item.seller.addresses[0]
   end
 
   def edit

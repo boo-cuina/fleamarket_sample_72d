@@ -2,44 +2,64 @@
 
 .item-show
   .item-show__content
-    .item-show__content-title example
+    .item-show__content-title
+      = @item.name
     .item-show__content-picture
       .item-show__content-picture__main
+        = image_tag @first_photo.image
       .item-show__content-picture__sub
-        .picture
-        .picture
+        - @photos.each do |photo|
+          .picture
+            = image_tag photo.image
     .item-show__content-price
-      .item-show__content-price__number ￥1000
-      .item-show__content-price__tax (税込) 送料込み
+      .item-show__content-price__number
+        = @item.price.to_i + @item.shipping_fee.to_i
+      .item-show__content-price__tax
+        (税込) 送料込み
     .item-show__content-detail
       %table{border: "1", bordercolor: "#DDDDDD"}
         %tr
-          %td.column 出品者
+          %td.column
+            出品者
           %td.info
+            = @item.seller.nickname
         %tr
-          %td.column カテゴリー
+          %td.column
+            カテゴリー
           %td.info
+            = @item.category.name
+            
         %tr
-          %td.column ブランド
+          %td.column
+            商品のサイズ
           %td.info
+            = @item.size
         %tr
-          %td.column 商品のサイズ
+          %td.column
+            商品の状態
           %td.info
+            = @item.status
         %tr
-          %td.column 商品の状態
+          %td.column
+            配送料の負担
           %td.info
+            = @item.shippingfrom_id
         %tr
-          %td.column 配送料の負担
+          %td.column
+            発送元の地域
           %td.info
+            = @seller_address.prefecture.name
         %tr
-          %td.column 発送元の地域
+          %td.column
+            発送日の目安
           %td.info
-        %tr
-          %td.column 発送日の目安
-          %td.info
-
+            = @item.shipping_days.to_s + "日"
       .item-show__content-btn
-        = button_to "購入画面に進む", "#", class: "confirm-btn"
+        - if user_signed_in? && @item.seller.id == current_user.id 
+          = button_to "商品の編集", "#", class: "confirm-btn"
+          = button_to "商品の削除", "#", class: "confirm-btn"
+        - elsif user_signed_in? && @item.seller.id =! current_user.id
+          = button_to "購入画面に進む", "#", class: "confirm-btn"
 
 = render "layouts/footer-banner"
 = render "layouts/footer-links"
