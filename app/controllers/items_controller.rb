@@ -29,6 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def confirm
