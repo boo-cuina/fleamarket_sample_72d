@@ -22,6 +22,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+  def new_address
+    @address = Address.find(params[:id])
+  end 
+
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
