@@ -13,9 +13,9 @@
             = image_tag photo.image
     .item-show__content-price
       .item-show__content-price__number
-        = @item.price.to_i + @item.shipping_fee.to_i
+        = @item.price
       .item-show__content-price__tax
-        (税込) 送料込み
+        = "(税込) #{@item.shipping_fee}"
     .item-show__content-detail
       %table{border: "1", bordercolor: "#DDDDDD"}
         %tr
@@ -43,7 +43,7 @@
           %td.column
             配送料の負担
           %td.info
-            = @item.shippingfrom_id
+            = @item.shipping_fee
         %tr
           %td.column
             発送元の地域
