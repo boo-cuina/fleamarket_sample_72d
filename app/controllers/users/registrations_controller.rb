@@ -11,9 +11,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full.messages
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user][:password] = params[:user][:password]
+    @address = @user.build_address
+    render :new_address
   end
 
+  protected
   # GET /resource/edit
   # def edit
   #   super
