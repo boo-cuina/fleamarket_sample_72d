@@ -27,7 +27,8 @@
           %p カテゴリー
           .necessary-mark 必須
         .category__text-form
-          = f.text_field :category, class: "item-new-form" 
+          = f.fields_for :category do |i|
+            = f.text_field :name, class: "item-new-form" 
         .title
           %p サイズ 
           .necessary-mark 必須
