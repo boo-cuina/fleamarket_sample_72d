@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show,:edit,:destroy,:update]
+  before_action :move_to_index, only: []
 
   def index
   end
@@ -40,7 +41,16 @@ class ItemsController < ApplicationController
   end
 
   private
+  def post_params
+    params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
+                                 photos_attributes: {image: []},category_attributes: [:name]).merge(seller_id: current_user.id)
+  end
+
   def set_item
     @item = Item.find(params[:id]) 
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in? && @item.seller.id == current_user.id 
   end
 end
