@@ -8,8 +8,11 @@
           .necessary-mark 必須
         %p.note 最大５枚までアップロードできます
         .file-upload-box
+          .container
+        .input-area
           = f.fields_for :photos do |i|
-            = i.file_field :image, placeholder: "クリックして画像をアップロード", class: "upload-btn"
+            = i.file_field :image, class: "upload-btn"
+
       .item-new__content-detail
         .title
           %p 商品名
