@@ -67,7 +67,7 @@
             .card-new__container__info__inner__form__security__code
               = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'security-number',  maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
  
-          -# 追加するボタン
+          -# 追加するボタン linkはユーザID等の機能未実装のためprefix未設定(実装後はlink_to card_path,)となる
           .card-new__container__info__inner__form__add 
             = link_to '/cards/show', class: "add-btn" do
               %p 追加する
