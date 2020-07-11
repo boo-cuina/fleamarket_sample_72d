@@ -3,7 +3,7 @@ class Address < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :user
 
-  validates :user, presence: true, foreign_key: true
+  validates :user, presence: true
 
   with_options presence: true do
     validates :last_name

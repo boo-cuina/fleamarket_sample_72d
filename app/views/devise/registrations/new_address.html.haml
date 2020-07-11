@@ -33,7 +33,7 @@
           %span.require
             必須
         .form-name
-          = f.text_field :prefecture_id, class: "input-default"
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name ,{prompt: "選択してください"},{ class:"form_group__select"}
 
         .form-title
           %p.title 市区町村
