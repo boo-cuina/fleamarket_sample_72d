@@ -9,7 +9,8 @@
         %p.note 最大５枚までアップロードできます
         .file-upload-box
           = f.fields_for :photos do |i|
-            = i.file_field :image, placeholder: "クリックして画像をアップロード", class: "upload-btn"
+            = i.file_field :image, class: "update-btn"
+
       .item-new__content-detail
         .title
           %p 商品名
@@ -28,7 +29,7 @@
           .necessary-mark 必須
         .category__text-form
           = f.fields_for :category do |i|
-            = f.text_field :name, class: "item-new-form" 
+            = i.text_field :name, class: "item-new-form" 
         .title
           %p サイズ 
           .necessary-mark 必須
@@ -45,7 +46,7 @@
           %p 配送料の負担
           .necessary-mark 必須
         .delivery__text-form1
-          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: "#{@item.shipping_fee}"}, {class: "item-new-form"}
+          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: ""}, {class: "item-new-form"}
         .title
           %p 発送元の地域
           .necessary-mark 必須
@@ -55,7 +56,7 @@
           %p 発送までの日数
           .necessary-mark 必須
         .delivery__text-form2
-          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: "#{@item.shipping_days.to_s + "日"}"}, {class: "item-new-form"}
+          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: ""}, {class: "item-new-form"}
       .item-new__content-confirm
         %p 価格（￥300〜9,999,999)
         .item-new__content-confirm__box1
