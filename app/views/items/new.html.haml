@@ -9,9 +9,13 @@
         %p.note 最大５枚までアップロードできます
         .file-upload-box
           .container
-        .input-area
-          = f.fields_for :photos do |i|
-            = i.file_field :image, class: "upload-btn"
+ 
+            = f.fields_for :photos do |i|
+              = i.file_field :image, class: "upload-btn"
+              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][1][image]", id: "item_photos_attributes_1_image"
+              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][2][image]", id: "item_photos_attributes_2image"
+              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][3][image]", id: "item_photos_attributes_3_image"
+              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][4][image]", id: "item_photos_attributes_4_image"
 
       .item-new__content-detail
         .title
@@ -26,11 +30,13 @@
           = f.text_area :description, class: "item-new-form"
       .item-new__content-category
         %p 商品の詳細
-        .title
-          %p カテゴリー
-          .necessary-mark 必須
-        .category__text-form
-          = f.text_field :category, class: "item-new-form"        
+        / 一旦カテゴリーは退避
+        /
+          .title
+            %p カテゴリー
+            .necessary-mark 必須
+          .category__text-form
+            = f.text_field :category, class: "item-new-form"        
         .title
           %p サイズ 
           .necessary-mark 必須

@@ -8,10 +8,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    @item.save!
   end
 
-  def show
+  def shows
   end
 
   def edit
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :size, :status, :price, 
-      :shipping_fee, :shippingfrom, :shipping_days, :category, 
+      :shipping_fee, :shippingfrom_id, :shipping_days, 
       photos_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
