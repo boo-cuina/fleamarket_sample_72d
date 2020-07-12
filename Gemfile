@@ -43,6 +43,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rails-console'
+  gem 'pry-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -52,6 +57,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem 'faker'
 end
 
 group :production do
@@ -72,4 +82,8 @@ gem 'fog-aws'
 gem 'payjp'
 gem 'ancestry'
 gem 'active_hash'
-gem 'pry-rails'
+
+# 環境変数を簡単に定義できるENVファイルを対応させるgem
+gem 'dotenv-rails'
+gem 'rspec-rails'
+gem 'rails-i18n'
