@@ -64,7 +64,11 @@
     .product-box
       - @items.each do |item|
         = link_to item_path(item.id), class: 'product-box__list' do
-          = image_tag 'logo-white.png', class: 'product-box__list__image'
+          -# - objects = item.photos
+          -# - first_image = objects.first
+          -# = image_tag first_image.image, class: 'product-box__list__image'
+          - item.photos.each do |photo|
+            = image_tag photo.image, class: 'product-box__list__image'
           .product-box__list__body
             .product-box__list__body__name
               = item.name
