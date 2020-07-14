@@ -31,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
+    # binding.pry
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
@@ -45,7 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:last_name, :last_name_reading, :first_name, :first_name_reading, :postcode, :prefecture_id, :city, :block, :building, :phone_number)
+    params.require(:address).permit(:last_name, :last_name_reading, :first_name, :first_name_reading, :postcode, :prefecture_id, :city, :block, :building, :phone_number, :user_id)
   end
 
 
