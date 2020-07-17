@@ -1,0 +1,87 @@
+@mixin require {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 2px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+}
+
+@mixin btn {
+  height: 40px;
+  width: 300px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+}
+
+.account__main__content {
+  text-align: center;
+  padding: 40px 0;
+
+  h2.title {
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+
+  .form-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .title2 {
+    margin: 10px 0;
+  }
+  
+  .caution {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+
+  .btn {
+    @include btn
+  }
+
+  .form-text {
+    margin-top: 20px;
+  }
+
+  .recaptcha {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+}
+
+.require {
+  @include require
+}
+
+.btn-address {
+  width: 150px;
+  height: 40px;
+  margin-top: 30px;
+  border-radius: 15px;
+  color: white;
+  border: transparent;
+  background-color: #3CCACE;
+}
+
+.form_group__select {
+  height: 30px;
+}
+
+.account__main__create {
+  height: 100%;
+  background-color: #EEEEEE;
+
+
+  p.notice {
+    text-align: center;
+  }
+}
