@@ -17,7 +17,9 @@
         %li.leftlist__conts
           = link_to '#', class: "" do
             ブランド
-        
+    - if user_signed_in?
+
+    - else   
       %ul.rightlist
         %li.rightlist__conts
           = link_to user_session_path, class: "" do
