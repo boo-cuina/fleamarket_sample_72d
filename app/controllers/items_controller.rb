@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
 
   def index
+    @items = Item.includes(:photos).order('created_at DESC')
+
   end
 
   def new
