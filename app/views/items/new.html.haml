@@ -30,13 +30,12 @@
           = f.text_area :description, class: "item-new-form"
       .item-new__content-category
         %p 商品の詳細
-        / 一旦カテゴリーは退避
-        /
-          .title
-            %p カテゴリー
-            .necessary-mark 必須
-          .category__text-form
-            = f.text_field :category, class: "item-new-form"        
+        .title
+          %p カテゴリー
+          .necessary-mark 必須
+        .category__text-form
+          = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {class: "item-new-form"}
+          -# = f.text_field :category, class: "item-new-form"        
         .title
           %p サイズ 
           .necessary-mark 必須
