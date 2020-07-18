@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show,:edit,:destroy,:update]
-  before_action :move_to_index, only: []
+  before_action :move_to_index, only: [:edit,:destroy,:update]
 
   def index
   end
@@ -17,10 +17,10 @@ class ItemsController < ApplicationController
   def show
     @first_photo = @item.photos[0]
     @photos = @item.photos.all
-    @seller_address = @item.seller.addresses[0]
   end
 
   def edit
+    @item.photos.build
   end
 
   def destroy
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(post_params)
+    if @item.update(update_params)
       redirect_to "/items/#{@item.id}"
     else
       render :edit
@@ -43,9 +43,9 @@ class ItemsController < ApplicationController
   end
 
   private
-  def post_params
+  def update_params
     params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
-                                 photos_attributes: [:image]).merge(seller_id: current_user.id,category_id: params[:category_id])
+                                 photos_attributes: [:image,:_destroy, :id]).merge(seller_id: current_user.id,category_id: params[:category_id])
   end
 
   def set_item
