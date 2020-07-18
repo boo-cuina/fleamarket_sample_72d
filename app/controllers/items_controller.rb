@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
   def show
     @first_photo = @item.photos[0]
     @photos = @item.photos.all
-    @seller_address = @item.seller.addresses[0]
   end
 
   def edit
