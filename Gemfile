@@ -82,6 +82,7 @@ gem 'fog-aws'
 gem 'payjp'
 gem 'ancestry'
 gem 'active_hash'
+
 # 環境変数を簡単に定義できるENVファイルを対応させるgem
 gem 'dotenv-rails'
 gem 'rspec-rails'

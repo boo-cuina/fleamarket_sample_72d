@@ -31,8 +31,6 @@
     padding: 0;
   
     &__content {
-      height: 100vh;
-      overflow: scroll;
       width: 600px;
       margin: 0 auto;
       background-color: #fff;
@@ -44,7 +42,6 @@
       }
     
       &__form {
-        height: 700px;
         padding: 24px 0 40px;
         max-width: 343px;
         margin: 0 auto;
@@ -80,20 +77,17 @@
             height: 30px;
             width: 100%;
             margin: 5px 0 8px;
-            border-radius: 5px;
           }
           input[type="password"]{
             height: 30px;
             width: 100%;
             margin: 8px 0 0;
-            border-radius: 5px;
           }
         }
 
         .form-name {
           input[type="text"]{
             height: 30px;
-            border-radius: 5px;
             margin: 5px 0 8px;
           }
         }
@@ -111,14 +105,12 @@
           text-align: center;
           background-color: red;
           line-height: 48px;
-          border-radius: 5px;
           .btn {
             background-color: red;
             border: 1px solid red;
             color: white;
             width: 100%;
             line-height: 48px;
-            border-radius: 5px;
           }
         }
 
