@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       member do
         get :confirm
       end
+      #Ajaxで動くアクションのルートを作成
+      collection do
+        get 'items/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+        get 'items/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+      end
     end
     resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
