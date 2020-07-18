@@ -58,7 +58,7 @@
             = @item.shipping_days.to_s + "日"
       .item-show__content-btn
         - if user_signed_in? && @item.seller.id == current_user.id 
-          = button_to "商品の編集", "/items/#{@item.id}/edit", class: "confirm-btn"
+          = button_to "商品の編集", "/items/#{@item.id}/edit",method: :get,class: "confirm-btn"
           = button_to "商品の削除", "/items/#{@item.id}", method: :delete,class: "confirm-btn"
         - elsif user_signed_in? && @item.seller.id =! current_user.id
           = button_to "購入画面に進む", "#", class: "confirm-btn"
