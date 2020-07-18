@@ -5,3 +5,16 @@
   display: block;
   text-align: center;
 }
+.file-upload-box{
+  display: flex;
+}
+.update-btn{
+  display: none;
+}
+.update-btn-label{
+  color:gray;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+

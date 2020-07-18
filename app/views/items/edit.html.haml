@@ -8,8 +8,14 @@
           .necessary-mark 必須
         %p.note 最大５枚までアップロードできます
         .file-upload-box
-          = f.fields_for :photos do |i|
-            = i.file_field :image, class: "update-btn"
+          = f.fields_for :photos do |photo|
+            .file-upload-box-image
+              = image_tag(photo.object.image)
+              %br
+              %label{class: "update-btn-label"}
+                upload
+                = photo.file_field :image, class: "update-btn"
+                = photo.hidden_field :id, value: photo.object.id
 
       .item-new__content-detail
         .title
