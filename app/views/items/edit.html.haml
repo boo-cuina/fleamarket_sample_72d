@@ -28,8 +28,7 @@
           %p カテゴリー
           .necessary-mark 必須
         .category__text-form
-          = f.fields_for :category do |i|
-            = i.text_field :name, class: "item-new-form" 
+          = f.collection_radio_buttons :category_id, Category.all, :id, :name
         .title
           %p サイズ 
           .necessary-mark 必須
