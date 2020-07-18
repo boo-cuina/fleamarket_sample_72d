@@ -7,9 +7,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.photos.new
   end
 
   def create
+    @item.create(post_params)
   end
 
   def show
@@ -30,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update
+    if @item.update(post_params)
       redirect_to "/items/#{@item.id}"
     else
       render :edit
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   private
   def post_params
     params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
-                                 photos_attributes: {image: []},category_attributes: [:name]).merge(seller_id: current_user.id)
+                                 photos_attributes: [:image]).merge(seller_id: current_user.id,category_id: params[:category_id])
   end
 
   def set_item
