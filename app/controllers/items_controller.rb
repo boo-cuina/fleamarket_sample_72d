@@ -13,8 +13,6 @@ class ItemsController < ApplicationController
     
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
-    
-
     # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -66,7 +64,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :size, :status, :price, 
-      :shipping_fee, :shippingfrom_id, :shipping_days, 
+      :shipping_fee, :shippingfrom_id, :shipping_days, :category_id,
       photos_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
