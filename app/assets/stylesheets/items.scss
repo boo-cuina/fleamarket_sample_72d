@@ -1,3 +1,20 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.back-btn_1{
+  text-decoration: none;
+  color: lightskyblue;
+  display: block;
+  text-align: center;
+}
+.file-upload-box{
+  display: flex;
+}
+.update-btn{
+  display: none;
+}
+.update-btn-label{
+  color:gray;
+  font-weight: bold;
+  cursor: pointer;
+}
