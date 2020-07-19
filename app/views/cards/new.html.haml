@@ -9,7 +9,7 @@
 
     .card-new__container__info
       .card-new__container__info__inner
-        %form.card-new__info__inner__form
+        %form.card-new__info__inner__form{name: "inputForm", action: 'new'}
 
           -# カード番号入力欄
           .card-new__container__info__inner__form__head
@@ -31,7 +31,7 @@
             %span.require 必須
             %br
             .card-new__container__info__inner__form__expiration__select-month
-              %select.exp-month{name: "payment_card_month", type: "text"}
+              %select.exp-month{name: "payment_card_month", type: "text", id: "payment_card_month"}
                 %option{value: "1"} 01
                 %option{value: "2"} 02
                 %option{value: "3"} 03
@@ -46,7 +46,7 @@
                 %option{value: "12"} 12
               %span.month 月
             .card-new__container__info__inner__form__expiration__select-year
-              %select.exp-year{name: "payment_card_year", type: "text"}
+              %select.exp-year{name: "payment_card_year", type: "text", id: "payment_card_year"}
                 %option{value: "2020"} 20
                 %option{value: "2021"} 21
                 %option{value: "2022"} 22
@@ -65,12 +65,13 @@
             %label.security-code セキュリティコード
             %span.require 必須
             .card-new__container__info__inner__form__security__code
-              = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'security-number',  maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+              = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'security-number',  maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号', id: "cvc"
  
           -# 追加するボタン linkはユーザID等の機能未実装のためprefix未設定(実装後はlink_to card_path,)となる
           .card-new__container__info__inner__form__add 
-            = link_to '/cards/show', class: "add-btn" do
-              %p 追加する
+            = link_to '/cards/new', class: "add-btn" do
+              -# %p 追加する
+              = submit_tag "追加する", id: "token_submit"
 
 -# バナー
 = render "layouts/footer-banner"
