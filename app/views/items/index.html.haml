@@ -62,29 +62,22 @@
     = link_to '#', class: "subtitle" do
       新規投稿商品
     .product-box
-      = link_to '#', class: 'product-box__list' do
-        = image_tag 'logo-white.png', class: 'product-box__list__image'
-        .product-box__list__body
-          .product-box__list__body__name product3
-          .product-box__list__body__price 30000円
-          .product-box__list__body__comment (税込)
-      = link_to '#', class: 'product-box__list' do
-        = image_tag 'logo-white.png', class: 'product-box__list__image'
-        .product-box__list__body
-          .product-box__list__body__name product2
-          .product-box__list__body__price 20000円
-          .product-box__list__body__comment (税込)
-      = link_to '#', class: 'product-box__list' do
-        = image_tag 'logo-white.png', class: 'product-box__list__image'
-        .product-box__list__body
-          .product-box__list__body__name product1
-          .product-box__list__body__price 10000円
-          .product-box__list__body__comment (税込)
-
+      - @items.each do |item|
+        = link_to item_path(item.id), class: 'product-box__list' do
+          - objects = item.photos
+          - first_image = objects.first
+          = image_tag first_image.image, class: 'product-box__list__image'
+          .product-box__list__body
+            .product-box__list__body__name
+              = item.name
+            .product-box__list__body__price
+              = "￥#{item.price}"
+            .product-box__list__body__comment (税込)
+    
   .pickup-container{style: 'padding-bottom:80px;'}
-    %h2.head ピックアップブランド
+    %h2.head ピックアップカテゴリー
     = link_to '#', class: "subtitle" do
-      アーカイバ
+      レディース
     .product-box
       = link_to '#', class: 'product-box__list' do
         = image_tag 'logo-white.png', class: 'product-box__list__image'

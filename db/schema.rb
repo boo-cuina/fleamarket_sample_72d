@@ -58,11 +58,10 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.string   "shipping_days",                 null: false
     t.integer  "buyer_id"
     t.integer  "seller_id",                     null: false
-    t.integer  "category_id",                   null: false
+    t.string   "category"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
     t.index ["shippingfrom_id"], name: "index_items_on_shippingfrom_id", using: :btree
   end
@@ -90,11 +89,12 @@ ActiveRecord::Schema.define(version: 20200615143309) do
     t.string   "first_name",                          null: false
     t.string   "first_name_reading",                  null: false
     t.date     "birthday",                            null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "photos", "items"
