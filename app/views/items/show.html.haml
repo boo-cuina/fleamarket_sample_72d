@@ -5,12 +5,10 @@
     .item-show__content-title
       = @item.name
     .item-show__content-picture
-      .item-show__content-picture__main
-        = image_tag @first_photo.image
+      = image_tag @first_photo.image, class: "item-show__content-picture__main"
       .item-show__content-picture__sub
         - @photos.each do |photo|
-          .picture
-            = image_tag photo.image
+          = image_tag photo.image ,class: "picture"
     .item-show__content-price
       .item-show__content-price__number
         = @item.price.to_i + @item.shipping_fee.to_i
@@ -27,7 +25,7 @@
           %td.column
             カテゴリー
           %td.info
-            = @item.category.name
+            -# = @item.category.name
             
         %tr
           %td.column
