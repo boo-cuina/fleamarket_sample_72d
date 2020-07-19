@@ -12,7 +12,7 @@
             .file-upload-box-image
               = image_tag(photo.object.image)
               %br
-              %label{class: "update-btn-label"}
+              = photo.label :image, class: "update-btn-label" do
                 upload
                 = photo.file_field :image, class: "update-btn"
                 = photo.hidden_field :id, value: photo.object.id
@@ -44,7 +44,7 @@
           %p 商品の状態
           .necessary-mark 必須
         .category__text-form3
-          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: "#{@item.status}"}, {class: "item-new-form"}
+          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: ""}, {class: "item-new-form"}
       .item-new__content-delivery
         %p 配送について
         .title
