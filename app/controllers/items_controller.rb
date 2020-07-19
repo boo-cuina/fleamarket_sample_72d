@@ -32,12 +32,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update!(update_params)
-  #   if @item.update(update_params)
-  #     redirect_to "/items/#{@item.id}"
-  #   else
-  #     render :edit
-  #   end
+    if @item.update(update_params)
+      redirect_to "/items/#{@item.id}"
+    else
+      render :edit
+    end
   end
 
   def confirm
