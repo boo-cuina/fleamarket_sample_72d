@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item.photos.build
+    @item.photos
   end
 
   def destroy
@@ -32,11 +32,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(update_params)
-      redirect_to "/items/#{@item.id}"
-    else
-      render :edit
-    end
+    @item.update!(update_params)
+  #   if @item.update(update_params)
+  #     redirect_to "/items/#{@item.id}"
+  #   else
+  #     render :edit
+  #   end
   end
 
   def confirm
@@ -45,7 +46,7 @@ class ItemsController < ApplicationController
   private
   def update_params
     params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
-                                 photos_attributes: [:image,:_destroy, :id]).merge(seller_id: current_user.id,category_id: params[:category_id])
+                                 photos_attributes: [:id,:image,:_destory]).merge(seller_id: current_user.id,category_id: params[:category_id])
   end
 
   def set_item
