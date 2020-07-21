@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string     :shipping_days,     null: false
       t.references :buyer,                           foreign_key: { to_table: :users }
       t.references :seller,            null: false,  foreign_key: { to_table: :users }
-      t.references :category,null: false,  foreign_key: true
+      t.references :category,          null: false,  foreign_key: true
       # 変更元t.string :category
       t.timestamps
     end
