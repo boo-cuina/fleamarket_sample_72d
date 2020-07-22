@@ -7,30 +7,25 @@ $(function(){
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='category__text-form__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
-                            <option value="---" data-category="---">---</option>
-                            ${insertHTML}
-                          <select>
-                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                        </div>
+    childSelectHtml = `<div class='item-category-form2' id= 'children_wrapper'>
+                        <select class="item-category-form2__select" id="child_category" name="category_id">
+                          <option value="---" data-category="---">選択してください</option>
+                          ${insertHTML}
+                        <select>
                       </div>`;
-    $('.listing-product-detail__category').append(childSelectHtml);
+    // $('.item-new__content-category').append(childSelectHtml);
+    $('.category__text-form').append(childSelectHtml);
   }
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
-                              <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="category_id">
-                                  <option value="---" data-category="---">---</option>
-                                  ${insertHTML}
-                                </select>
-                                <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                              </div>
+    grandchildSelectHtml = `<div class='item-category-form3' id= 'grandchildren_wrapper'>
+                              <select class="item-category-form3__select" id="grandchild_category" name="category_id">
+                                <option value="---" data-category="---">選択してください</option>
+                                ${insertHTML}
+                              </select>
                             </div>`;
-    $('.listing-product-detail__category').append(grandchildSelectHtml);
+    $('.category__text-form').append(grandchildSelectHtml);
   }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
@@ -60,9 +55,9 @@ $(function(){
     }
   });
   // 子カテゴリー選択後のイベント
-  $('.listing-product-detail__category').on('change', '#child_category', function(){
+  $('.category__text-form').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+    if (childId != "選択して下さい"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
