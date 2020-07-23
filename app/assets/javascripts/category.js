@@ -9,7 +9,7 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='item-category-form2' id= 'children_wrapper'>
                         <select class="item-category-form2__select" id="child_category" name="category_id">
-                          <option value="---" data-category="---">選択してください</option>
+                          <option value="" data-category="">選択して下さい</option>
                           ${insertHTML}
                         <select>
                       </div>`;
@@ -21,7 +21,7 @@ $(function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='item-category-form3' id= 'grandchildren_wrapper'>
                               <select class="item-category-form3__select" id="grandchild_category" name="category_id">
-                                <option value="---" data-category="---">選択してください</option>
+                                <option value="" data-category="">選択して下さい</option>
                                 ${insertHTML}
                               </select>
                             </div>`;
@@ -30,7 +30,8 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "選択して下さい"){ //親カテゴリーが初期値でないことを確認
+    console.log(parentCategory)
+    if (parentCategory != ""){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
@@ -49,7 +50,7 @@ $(function(){
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
-    }else{
+    }else {
       $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren_wrapper').remove();
     }
@@ -57,7 +58,8 @@ $(function(){
   // 子カテゴリー選択後のイベント
   $('.category__text-form').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    if (childId != "選択して下さい"){ //子カテゴリーが初期値でないことを確認
+    console.log(childId);
+    if (childId != ""){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
@@ -77,7 +79,7 @@ $(function(){
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
-    }else{
+    }else {
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
