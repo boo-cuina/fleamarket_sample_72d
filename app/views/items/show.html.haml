@@ -11,9 +11,11 @@
           = image_tag photo.image ,class: "picture"
     .item-show__content-price
       .item-show__content-price__number
-        = @item.price.to_i + @item.shipping_fee.to_i
+        = @item.price
       .item-show__content-price__tax
-        (税込) 送料込み
+        = "(税込)"
+        %br
+        = @item.shipping_fee
     .item-show__content-detail
       %table{border: "1", bordercolor: "#DDDDDD"}
         %tr
@@ -41,7 +43,7 @@
           %td.column
             配送料の負担
           %td.info
-            = @item.shippingfrom_id
+            = @item.shipping_fee
         %tr
           %td.column
             発送元の地域
@@ -54,8 +56,8 @@
             = @item.shipping_days.to_s + "日"
       .item-show__content-btn
         - if user_signed_in? && @item.seller.id == current_user.id 
-          = button_to "商品の編集", "/items/#{@item.id}/edit", method: :get,class: "confirm-btn"
-          = button_to "商品の削除", "/items/#{@item.id}", method: :delete,class: "confirm-btn"
+          = button_to "商品の編集", edit_item_path(@item.id), method: :get,class: "confirm-btn"
+          = button_to "商品の削除", item_path(@item.id), method: :delete,class: "confirm-btn"
         - elsif user_signed_in? && @item.seller.id =! current_user.id
           = button_to "購入画面に進む", "#", class: "confirm-btn"
 

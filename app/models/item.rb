@@ -9,4 +9,5 @@ class Item < ApplicationRecord
   belongs_to :category, optional: true
 
   accepts_nested_attributes_for :photos, allow_destroy: true
+
 end
