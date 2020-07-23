@@ -26,7 +26,16 @@
             カテゴリー
           %td.info
             -# = @item.category.name
-            
+            - @parents.each do |parent|
+              - if @category.category_id == parent.id
+                = link_to "#" do
+                  = parent.parent.parent.name #親カテゴリー
+                  %br
+                = link_to "#" do
+                  = parent.parent.name #子カテゴリー
+                  %br
+                = link_to "#" do
+                  = parent.name #孫カテゴリー
         %tr
           %td.column
             商品のサイズ

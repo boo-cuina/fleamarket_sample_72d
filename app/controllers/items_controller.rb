@@ -40,6 +40,8 @@ class ItemsController < ApplicationController
   def show
     @first_photo = @item.photos[0]
     @photos = @item.photos.all
+    @category = Category.find(params[:id])
+    @parents = Category.all
   end
 
   def edit
