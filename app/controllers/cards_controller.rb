@@ -68,6 +68,17 @@ class CardsController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
+  def create
+    Payjp.api_key = 'sk_test_ebda238e172006a9705546e2'
+    customer = Payjp::Customer.create(card: params[:payjpToken])
+    @card = Card.new(user: current_user.id, customer_id: customer.id, card_token: params[:payjpToken])
+    if @card.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   def pay       #payjpとcardのデータベース作成
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
