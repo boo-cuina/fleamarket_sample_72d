@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -20,7 +20,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='item-category-form3' id= 'grandchildren_wrapper'>
-                              <select class="item-category-form3__select" id="grandchild_category" name="category_id">
+                              <select class="item-category-form3__select" id="grandchild_category" name="item[category_id]">
                                 <option value="" data-category="">選択して下さい</option>
                                 ${insertHTML}
                               </select>
@@ -30,7 +30,6 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    console.log(parentCategory)
     if (parentCategory != ""){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_children',
@@ -58,7 +57,6 @@ $(function(){
   // 子カテゴリー選択後のイベント
   $('.category__text-form').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    console.log(childId);
     if (childId != ""){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_grandchildren',
