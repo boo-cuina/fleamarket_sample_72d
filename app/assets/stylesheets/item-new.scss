@@ -92,17 +92,27 @@
     &-picture {
       @include padding;
       @include margin;
-      height: 250px;
+      
+      // サーバーサイド実装でheigth250→調整
+      height: 260px;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
 
       .file-upload-box {
-        height: 130px;
+        // サーバーサイド実装でheigth130→調整
+        height: 150px;
         width: 500px;
         border: solid 1px #DDDDDD;
+        display: flex;
+        justify-content: left;
+        .container {
+
+          .upload-btn {
+            
+          }
+        }
       }     
     }
-
 
     &-detail {
       @include padding;
@@ -191,6 +201,7 @@
           background-color: #EEEEEE;
         }
         .back-btn {
+          display: block;
           text-decoration: none;
           color: lightskyblue;
         }

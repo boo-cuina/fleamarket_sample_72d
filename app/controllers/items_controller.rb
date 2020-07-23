@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit,:destroy,:update]
 
   def index
+    @items = Item.includes(:photos).order('created_at DESC')
+
   end
 
   def new
@@ -11,7 +13,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item.create(post_params)
+    @item = Item.new(item_params)
+    @item.save!
+    if @item.save
+      redirect_to controller: :items, action: :index
+    else
+      render :new
+    end
   end
 
   def show
@@ -43,9 +51,16 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def update_params
     params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
                                  photos_attributes: [:id,:image,:_destory]).merge(seller_id: current_user.id)
+  end
+  def item_params
+    params.require(:item).permit(:name, :description, :size, :status, :price, 
+      :shipping_fee, :shippingfrom_id, :shipping_days, 
+      photos_attributes: [:image]).merge(seller_id: current_user.id)
+
   end
 
   def set_item
