@@ -63,6 +63,27 @@
       width: 500px;
       height: 60px;
     }
+    .item-category-form,
+      input[type="text"] {
+      width: 500px;
+      height: 60px;
+    }
+    .item-category-form2 {
+      &__select,
+      input[type="text"] {
+      width: 500px;
+      height: 60px;
+      margin-top: 15px;
+      }
+    }
+    .item-category-form3 {
+      &__select,
+      input[type="text"] {
+      width: 500px;
+      height: 60px;
+      margin-top: 15px;
+      }
+    }
 
     textarea {
       width: 500px;
@@ -130,7 +151,7 @@
     &-category {
       @include padding;
       @include margin;
-      height: 420px;
+      height: auto;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
 
