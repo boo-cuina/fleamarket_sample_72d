@@ -10,4 +10,15 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :size, presence: true
+  validates :status, presence: true
+  validates :price, presence: true
+  validates :shipping_fee, presence: true
+  validates :shippingfrom, presence: true
+  validates :shipping_days, presence: true
+  validates :seller, presence: true
+  validates :category, presence: true
+
 end
