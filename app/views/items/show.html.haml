@@ -63,8 +63,9 @@
         - if user_signed_in? && @item.seller.id == current_user.id 
           = button_to "商品の編集", edit_item_path(@item.id), method: :get,class: "confirm-btn"
           = button_to "商品の削除", item_path(@item.id), method: :delete,class: "confirm-btn"
-        - elsif user_signed_in? && @item.seller.id =! current_user.id
+        - elsif user_signed_in? && @item.seller.id != current_user.id
           = button_to "購入画面に進む", "#", class: "confirm-btn"
+        
 
 = render "layouts/footer-banner"
 = render "layouts/footer-links"

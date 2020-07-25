@@ -5,8 +5,10 @@ class Item < ApplicationRecord
   belongs_to :buyer,  class_name: 'User', foreign_key: 'buyer_id', optional: true
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id', optional: true
 
-  has_many :photos
-  belongs_to :category
+
+  has_many :photos,dependent: :destroy
+  belongs_to :category, optional: true
+
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 
