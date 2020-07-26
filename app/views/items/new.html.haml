@@ -34,7 +34,7 @@
           %p カテゴリー
           .necessary-mark 必須
         .category__text-form
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {class: "item-category-form", id: 'parent_category'}
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {required: true, class: "item-category-form", id: 'parent_category'}
         .title
           %p サイズ 
           .necessary-mark 必須
