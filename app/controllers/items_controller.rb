@@ -1,6 +1,14 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show,:edit,:destroy,:update]
   before_action :move_to_index, only: [:edit,:destroy,:update]
+  before_action :set_category, only: [:new,:edit]
+  def get_category_children
+    @category_children =  Category.find("#{params[:parent_name]}").children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
 
   def index
     @items = Item.includes(:photos).order('created_at DESC')
@@ -10,22 +18,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.photos.new
-
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
-    # 以下全て、formatはjsonのみ
-    # 親カテゴリーが選択された後に動くアクション
-  def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    @category_children =  Category.find("#{params[:parent_name]}").children
-  end
-
-    # 子カテゴリーが選択された後に動くアクション
-  def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
-
   end
 
   def create
@@ -46,7 +38,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item.photos
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+
   end
 
   def destroy
@@ -71,8 +80,8 @@ class ItemsController < ApplicationController
   private
 
   def update_params
-    params.require(:item).permit(:name,:description,:size,:status,:price,:shipping_fee,:shippingfrom_id,:shipping_days,
-                                 photos_attributes: [:id,:image,:_destory]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size, :status, :price, 
+      :shipping_fee, :shippingfrom_id, :shipping_days, :category_id,photos_attributes: [:id,:image,:_destory]).merge(seller_id: current_user.id)
   end
   def item_params
     params.require(:item).permit(:name, :description, :size, :status, :price, 
@@ -83,6 +92,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id]) 
+  end
+
+  def set_category  
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def move_to_index

@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
     root to: 'items#index'
     resources :items do
-      member do
-        get :confirm
-      end
     #Ajaxで動くアクションのルートを作成
       collection do
+        get 'get_category_children', defaults: { format: 'json' }
+        get 'get_category_grandchildren', defaults: { format: 'json' }
+      end
+      member do
+        get :confirm
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
       end
