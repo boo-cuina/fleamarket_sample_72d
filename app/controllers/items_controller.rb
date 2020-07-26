@@ -25,12 +25,11 @@ class ItemsController < ApplicationController
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-  
+
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save!
     if @item.save
       redirect_to controller: :items, action: :index
     else
