@@ -42,52 +42,8 @@
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 
-// ヘッダー
-.pcheader {
-  padding: 0 60px;
+// // subヘッダー
 
-  .header-container {
-    width: 100%;
-    max-width: 1040px;
-    min-height: 82px;
-    margin: 0 auto;
-    padding: 15px 0 0;
-    .main-header {
-      display: flex;
-      align-items: center;
-      .furima-logo {
-        margin-right: 30px;
-        padding-bottom: 10px;
-        border-radius: 4px;
-        a {
-          width: 140px;
-          display: block;
-        }
-        @include img;
-      }
-      .form {
-        margin-left: auto;
-        width: 100%;
-        .search-box {
-          width: 100%;
-          display: flex;
-          margin-bottom: 5px;
-          &__text {
-            width: calc(100% - 26px);
-            height: 36px;
-            padding-left: 5px;
-          }
-          &__btn {
-            width: 36px;
-            padding: 8px;
-            background-color: #3CCACE;
-            border: 0;
-            cursor: pointer;
-            @include img;
-          }
-        }
-      }
-    }
     .sub-header {
       display: flex;
       justify-content: space-between;
@@ -114,8 +70,6 @@
         }
       }
     }
-  }
-}
 
 // メイン
 .main-toppage {
