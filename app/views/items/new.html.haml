@@ -11,7 +11,7 @@
           .container
  
             = f.fields_for :photos do |i|
-              = i.file_field :image, class: "upload-btn"
+              = i.file_field :image, required:true, class: "upload-btn"
               = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][1][image]", id: "item_photos_attributes_1_image"
               = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][2][image]", id: "item_photos_attributes_2image"
               = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][3][image]", id: "item_photos_attributes_3_image"
@@ -22,12 +22,12 @@
           %p 商品名
           .necessary-mark 必須
         .detail__text-form1
-          = f.text_field :name, class: "item-new-form"
+          = f.text_field :name, required: true, class: "item-new-form", maxlength: 20
         .title
           %p 商品の説明
           .necessary-mark 必須
         .detail__text-form2
-          = f.text_area :description, class: "item-new-form"
+          = f.text_area :description, required: true, class: "item-new-form2", maxlength: 1000
       .item-new__content-category
         %p 商品の詳細    
         .title
@@ -40,29 +40,29 @@
           %p サイズ 
           .necessary-mark 必須
         .category__text-form2
-          = f.select :size, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"], ["それ以外", "それ以外"]],{include_blank: "選択して下さい"}, {class: "item-new-form"}
+          = f.select :size, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"], ["それ以外", "それ以外"]],{include_blank: "選択して下さい"}, {required: true, class: "item-new-form"}
         .title
           %p 商品の状態
           .necessary-mark 必須
         .category__text-form3
-          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
+          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: "選択して下さい"}, {required: true, class: "item-new-form"}
       .item-new__content-delivery
         %p 配送について
         .title
           %p 配送料の負担
           .necessary-mark 必須
         .delivery__text-form1
-          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
+          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: "選択して下さい"}, {required: true, class: "item-new-form"}
         .title
           %p 発送元の地域
           .necessary-mark 必須
         .delivery__text-form2
-          = f.collection_select :shippingfrom_id, Shippingfrom.all, :id, :name, {prompt: "--"}, {class: "item-new-form"}
+          = f.collection_select :shippingfrom_id, Shippingfrom.all, :id, :name, {prompt: "--"}, {required: true, class: "item-new-form"}
         .title
           %p 発送までの日数
           .necessary-mark 必須
         .delivery__text-form2
-          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: "選択して下さい"}, {class: "item-new-form"}
+          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: "選択して下さい"}, {required: true, class: "item-new-form"}
       .item-new__content-confirm
         %p 価格（￥300〜9,999,999)
         .item-new__content-confirm__box1
@@ -72,7 +72,7 @@
           .confirm__text-form
             %p ￥
             .form
-              = f.text_field :price, class: "item-new-form2"
+              = f.number_field :price, required:true, class: "item-new-form3", min: 300, max: 9999999
         .btn
           = f.submit "出品する", class: "item-new__confirm-btn"
           = button_to "下書きに保存", "#", class: "item-new__save-btn"
