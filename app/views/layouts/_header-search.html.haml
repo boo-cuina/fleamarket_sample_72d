@@ -9,15 +9,13 @@
           = button_tag type:"submit", class: 'search-box__btn' do
             =image_tag 'icon-search 1.png'
 
-      - if user_signed_in?
-        .rightlist
-          = link_to "マイページ", "/users/#{current_user.id}", class: "mypage"
+    - if user_signed_in?
+      .rightlist
+        = link_to "マイページ", "/users/#{current_user.id}", class: "mypage"
 
-      - else 
-        %ul.rightlist
-          %li.rightlist__conts
-            = link_to user_session_path, class: "" do
-              ログイン
-          %li.rightlist__conts
-            = link_to new_user_registration_path, class: "" do
-              新規会員登録
+    - else 
+      %ul.rightlist
+        %li.rightlist__conts
+          = link_to "ログイン", user_session_path, class: "login"
+        %li.rightlist__conts
+          = link_to "新規会員登録", new_user_registration_path, class: "signup"

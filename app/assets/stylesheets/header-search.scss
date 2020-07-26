@@ -1,0 +1,87 @@
+@mixin after {
+  &::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin img {
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+// ヘッダー
+.pcheader {
+  padding: 0 60px;
+
+  .header-container {
+    width: 100%;
+    max-width: 1040px;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    .main-header {
+      display: flex;
+      align-items: center;
+      .furima-logo {
+        margin-right: 30px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+        }
+        @include img;
+      }
+      .form {
+        margin-left: auto;
+        width: 100%;
+        .search-box {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &__text {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding-left: 5px;
+          }
+          &__btn {
+            width: 36px;
+            padding: 8px;
+            background-color: #3CCACE;
+            border: 0;
+            cursor: pointer;
+            @include img;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rightlist {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  font-size: 13px;
+
+  .login {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .signup {
+    text-decoration: none;
+    color: black;
+  }
+}
+
