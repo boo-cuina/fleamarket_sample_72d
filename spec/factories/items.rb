@@ -7,11 +7,11 @@ FactoryBot.define do
     status            {"新品・未使用"}
     price             {"1000"}
     shipping_fee      {"送料込み"}
-    shippingfrom      {"1"}
+    shippingfrom_id      {1}
     shipping_days     {"1〜2日で発送"}
-    buyer             {""}
-    seller            {"1"}
-    category          {"17"}
+    buyer_id             {""}
+    seller_id            {1}
+    category_id          {17}
   end
 
 end
