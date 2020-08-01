@@ -149,7 +149,6 @@
           width: 60px;
           height: 60px;
           border: 0;
-          cursor: pointer;
           padding: 8px;
         }
       }
@@ -175,13 +174,11 @@
             width: 50%;
             font-size: 16px;
             border-top: solid 1px #3CCACE;
-            cursor: pointer;
           }
           &__pasttransactions {
             background-color: #dddddd;
             width: 50%;
             font-size: 16px;
-            cursor: pointer;
           }
         }
         &__content {
@@ -189,7 +186,6 @@
           text-align: center;
           font-size: 16px;
           color: #ccc;
-          cursor: pointer;
         }
       }
     }
