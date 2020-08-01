@@ -11,11 +11,13 @@
           = image_tag photo.image ,class: "picture"
     .item-show__content-price
       .item-show__content-price__number
-        = @item.price
+        = @item.price.to_s + "円"
       .item-show__content-price__tax
         = "(税込)"
         %br
         = @item.shipping_fee
+    .item-show__content-description
+      = @item.description
     .item-show__content-detail
       %table{border: "1", bordercolor: "#DDDDDD"}
         %tr
@@ -63,8 +65,9 @@
         - if user_signed_in? && @item.seller.id == current_user.id 
           = button_to "商品の編集", edit_item_path(@item.id), method: :get,class: "confirm-btn"
           = button_to "商品の削除", item_path(@item.id), method: :delete,class: "confirm-btn"
-        - elsif user_signed_in? && @item.seller.id =! current_user.id
+        - elsif user_signed_in? && @item.seller.id != current_user.id
           = button_to "購入画面に進む", "#", class: "confirm-btn"
+        
 
 = render "layouts/footer-banner"
 = render "layouts/footer-links"

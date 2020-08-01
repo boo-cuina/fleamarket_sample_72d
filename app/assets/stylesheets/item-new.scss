@@ -58,37 +58,33 @@
     margin-bottom: 2px;
     background-color: white;
 
-    .item-new-form,
-      input[type="text"] {
+    .item-new-form {
       width: 500px;
       height: 60px;
     }
-    .item-category-form,
-      input[type="text"] {
+
+    .item-new-form2 {
+      width: 500px;
+      height: 170px;
+    }
+    
+    .item-category-form {
       width: 500px;
       height: 60px;
     }
     .item-category-form2 {
-      &__select,
-      input[type="text"] {
-      width: 500px;
-      height: 60px;
-      margin-top: 15px;
+      &__select {
+        width: 500px;
+        height: 60px;
+        margin-top: 15px;
       }
     }
     .item-category-form3 {
-      &__select,
-      input[type="text"] {
-      width: 500px;
-      height: 60px;
-      margin-top: 15px;
+      &__select {
+        width: 500px;
+        height: 60px;
+        margin-top: 15px;
       }
-    }
-
-    textarea {
-      width: 500px;
-      height: 180px;
-      border: solid 1px #DDDDDD;
     }
 
     .title {
@@ -154,7 +150,6 @@
       height: auto;
       margin-bottom: 2px;
       border-bottom: solid 1px grey;
-
     }
 
     &-delivery {
@@ -184,29 +179,14 @@
         .confirm__text-form {
           display: flex;
 
-          input[type="text"] {
+          .item-new-form3 {
             width: 250px;
             height: 60px;
-          } 
+            text-align: right;
+          }
         }
       }
-      .confirm__tax {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
 
-
-        input[type="text"] {
-          width: 250px;
-          height: 60px;
-        }  
-      }
-      .confirm__tax__border {
-        height: 10px;
-        width: 500px;
-        border-bottom: solid 1px gray;
-      }
       .btn {
         text-align: center;
       

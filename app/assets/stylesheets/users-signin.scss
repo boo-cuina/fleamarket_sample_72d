@@ -57,7 +57,7 @@
           padding: 24px 64px 32px;
           border-top: 1px solid #f5f5f5;
 
-          .form {
+          
             input[type="text"]{
               height: 30px;
               width: 100%;
@@ -68,18 +68,18 @@
               width: 100%;
               margin: 8px 0 0;
             }
-          }
+          
 
           .login-btn {
             display: block;
             margin: 48px 0 24px;
             text-align: center;
-            background-color: red;
+            background-color: #3CCACE;
             line-height: 48px;
             border-radius: 5px;
             .btn {
-              background-color: red;
-              border: 1px solid red;
+              background-color: #3CCACE;
+              border: 1px solid #3CCACE;
               color: white;
             }
           }
