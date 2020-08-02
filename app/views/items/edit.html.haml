@@ -22,19 +22,22 @@
           %p 商品名
           .necessary-mark 必須
         .detail__text-form1
-          = f.text_field :name, class: "item-new-form"
+          = f.text_field :name, class: "item-new-form", maxlength: 20
         .title
           %p 商品の説明
           .necessary-mark 必須
         .detail__text-form2
-          = f.text_area :description, class: "item-new-form"
+          = f.text_area :description, class: "item-new-form2", maxlength: 1000
       .item-new__content-category
         %p 商品の詳細
         .title
           %p カテゴリー
           .necessary-mark 必須
         .category__text-form
-          -# = f.collection_radio_buttons :category_id, Category.all, :id, :name
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい', selected: @item.category.root_id}, {class: "item-category-form", id: 'parent_category'}
+          = f.collection_select :category_id, @category_children_array,:id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {class: 'item-category-form2__select', id: 'children_wrapper'}
+          = f.collection_select :category_id, @category_grandchildren_array,:id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {class: 'item-category-form3__select', id: 'grandchildren_wrapper'}
+          
         .title
           %p サイズ 
           .necessary-mark 必須
@@ -71,7 +74,7 @@
           .confirm__text-form
             %p ￥
             .form
-              = f.text_field :price, class: "item-new-form2"
+              = f.text_field :price, class: "item-new-form3",min: 300, max: 9999999
         .btn
           = f.submit "編集する", class: "item-new__confirm-btn"
         = link_to 'もどる', "/items/#{@item.id}", class: "back-btn_1"
