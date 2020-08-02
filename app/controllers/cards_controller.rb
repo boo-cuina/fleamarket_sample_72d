@@ -35,26 +35,34 @@ class CardsController < ApplicationController
   end
 
   def show        #cardのデータをpayjpに送り、情報を取り出す
-    card = Card.where(user: current_user.id).first
+    @card = Card.where(user: current_user.id).first
     if @card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(customer.default_card)
+      # 表示文字数変更処理
+      @last4 = @default_card_information.last4
+      @exp_month = @default_card_information.exp_month.to_s.rjust(2, '0')
+      @exp_year = @default_card_information.exp_year.to_s.slice(2, 2)
     end
   end
 
   def delete      #payjpとcardデータベースを削除
-    card = Card.where(user: current_user.id).first
+    @card = Card.where(user: current_user.id).first
     if @card.blank?
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
-    end
       redirect_to action: "new"
+    else
+      # payjpから顧客情報削除処理
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer.delete
+      # データベースからのカード情報削除処理
+      @card.delete
+      # 削除完了時にマイページへ遷移
+      redirect_to user_path
+    end
   end
 
   def confirm

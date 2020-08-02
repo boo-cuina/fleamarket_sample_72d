@@ -5,11 +5,6 @@ document.addEventListener(
       let btn = document.getElementById("token_submit");    //IDがtoken_submitの場合に取得される
       btn.addEventListener("click", e => {    //ボタンが押された時に作動
         e.preventDefault();     //ボタンを一旦無効化する
-        console.log('number:' +  document.getElementById("payment_card_no").value);
-        console.log('cvc:' +  document.getElementById("cvc").value);
-        console.log('exp_month:' +  document.getElementById("payment_card_month").value);
-        console.log('exp_year:'  + document.getElementById("payment_card_year").value);
-
         let card = {
           number: document.getElementById("payment_card_no").value,
           cvc: document.getElementById("cvc").value,
