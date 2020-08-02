@@ -152,42 +152,6 @@
           padding: 8px;
         }
       }
-
-      &__purchased-product {
-        background-color: white;
-        height: 400px;
-        margin: 40px 0 0;
-        &__head {
-          padding: 0 16px;
-          background-color: #eeeeee;
-          font-size: 16px;
-          line-height: 72px;
-          font-weight: bold;
-        }
-        &__tab {
-          height: 74px;
-          line-height: 74px;
-          display: flex;
-          text-align: center;
-          font-weight: bold;
-          &__during-trading {
-            width: 50%;
-            font-size: 16px;
-            border-top: solid 1px #3CCACE;
-          }
-          &__pasttransactions {
-            background-color: #dddddd;
-            width: 50%;
-            font-size: 16px;
-          }
-        }
-        &__content {
-          padding: 114px 0px;
-          text-align: center;
-          font-size: 16px;
-          color: #ccc;
-        }
-      }
     }
   }
 }
