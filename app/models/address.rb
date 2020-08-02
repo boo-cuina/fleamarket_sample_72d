@@ -14,6 +14,5 @@ class Address < ApplicationRecord
     validates :prefecture
     validates :city
     validates :block
-    validates :phone_number
   end
 end
