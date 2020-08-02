@@ -40,9 +40,9 @@ describe Item do
     end
 
     it "shippingfromが無い場合は登録できないこと" do
-      item = build(:item, shippingfrom: nil)
+      item = build(:item, shippingfrom_id: nil)
       item.valid?
-      expect(item.errors[:shippingfrom]).to include("can't be blank")
+      expect(item.errors[:shippingfrom_id]).to include("can't be blank")
     end
 
     it "shipping_daysが無い場合は登録できないこと" do
@@ -52,15 +52,28 @@ describe Item do
     end
 
     it "seller_idが無い場合は登録できないこと" do
-      item = build(:item, seller: nil)
+      item = build(:item, seller_id: nil)
       item.valid?
-      expect(item.errors[:seller]).to include("can't be blank")
+      expect(item.errors[:seller_id]).to include("can't be blank")
     end
 
     it "category_idが無い場合は登録できないこと" do
-      item = build(:item, category: nil)
+      item = build(:item, category_id: nil)
       item.valid?
-      expect(item.errors[:category]).to include("can't be blank")
+      expect(item.errors[:category_id]).to include("can't be blank")
+    end
+
+    it "imageが無い場合は登録できないこと" do
+      item = build(:item)
+      item.valid?
+      expect(item.errors[:photos]).to include("can't be blank")
+    end
+
+
+    it "全てを満たせば登録できること" do
+      photo = build(:photo)
+      item = build(:item, photos:[photo])
+      expect(item).to be_valid
     end
 
   end
