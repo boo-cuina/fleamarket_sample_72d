@@ -22,12 +22,12 @@
           %p 商品名
           .necessary-mark 必須
         .detail__text-form1
-          = f.text_field :name, class: "item-new-form"
+          = f.text_field :name, class: "item-new-form", maxlength: 20
         .title
           %p 商品の説明
           .necessary-mark 必須
         .detail__text-form2
-          = f.text_area :description, class: "item-new-form"
+          = f.text_area :description, class: "item-new-form2", maxlength: 1000
       .item-new__content-category
         %p 商品の詳細
         .title
@@ -74,7 +74,7 @@
           .confirm__text-form
             %p ￥
             .form
-              = f.text_field :price, class: "item-new-form2"
+              = f.text_field :price, class: "item-new-form3",min: 300, max: 9999999
         .btn
           = f.submit "編集する", class: "item-new__confirm-btn"
         = link_to 'もどる', "/items/#{@item.id}", class: "back-btn_1"

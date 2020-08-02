@@ -11,7 +11,7 @@
           = image_tag photo.image ,class: "picture"
     .item-show__content-price
       .item-show__content-price__number
-        = @item.price
+        = @item.price.to_s + "円"
       .item-show__content-price__tax
         = "(税込)"
         %br
