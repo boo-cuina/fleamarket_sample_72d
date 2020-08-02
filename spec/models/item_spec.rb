@@ -9,10 +9,22 @@ describe Item do
       expect(item.errors[:name]).to include("can't be blank")
     end
 
+    it "nameが20文字を超える場合は登録できないこと" do
+      item = build(:item, name: "a" * 21)
+      item.valid?
+      expect(item.errors[:name]).to include("is too long (maximum is 20 characters)")
+    end
+
     it "descriptionが無い場合は登録できないこと" do
       item = build(:item, description: nil)
       item.valid?
       expect(item.errors[:description]).to include("can't be blank")
+    end
+
+    it "descriptionが1000文字を超える場合は登録できないこと" do
+      item = build(:item, description: "a" * 1001)
+      item.valid?
+      expect(item.errors[:description]).to include("is too long (maximum is 1000 characters)")
     end
 
     it "sizeが無い場合は登録できないこと" do
@@ -31,6 +43,18 @@ describe Item do
       item = build(:item, price: nil)
       item.valid?
       expect(item.errors[:price]).to include("can't be blank")
+    end
+
+    it "priceが300円未満の場合は登録できないこと" do
+      item = build(:item, price: 299)
+      item.valid?
+      expect(item.errors[:price]).to include("must be greater than or equal to 300")
+    end
+
+    it "priceが9,999,999円を超える場合は登録できないこと" do
+      item = build(:item, price: 10000000)
+      item.valid?
+      expect(item.errors[:price]).to include("must be less than or equal to 9999999")
     end
 
     it "shipping_feeが無い場合は登録できないこと" do
@@ -68,7 +92,6 @@ describe Item do
       item.valid?
       expect(item.errors[:photos]).to include("can't be blank")
     end
-
 
     it "全てを満たせば登録できること" do
       photo = build(:photo)
