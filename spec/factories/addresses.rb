@@ -9,6 +9,6 @@ FactoryBot.define do
     prefecture_id       {"1"}
     city                {"渋谷区"}
     block               {"道玄坂"}
-
+    phone_number        {"0900000000"}
   end
 end
