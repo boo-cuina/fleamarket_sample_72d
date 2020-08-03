@@ -7,10 +7,10 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = 'sk_test_ebda238e172006a9705546e2'
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.create(card: params[:payjpToken])
     @card = Card.new(user: current_user, customer_id: customer.id, card_token: params[:payjpToken])
-    if @card.save!
+    if @card.save
       redirect_to root_path
     else
       redirect_to root_path

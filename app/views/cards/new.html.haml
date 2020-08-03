@@ -9,7 +9,6 @@
 
     .card-new__container__info
       .card-new__container__info__inner
-        -# = form_tag card-new__info__inner__form{name: "inputForm", method: "post", action: "/cards"}
         = form_tag cards_path, name: "inputForm", method: "post", class: "card-new__info__inner__form" do
 
           #card_token
