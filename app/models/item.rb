@@ -18,10 +18,10 @@ class Item < ApplicationRecord
   validates :status, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :shipping_fee, presence: true
-  validates :shippingfrom, presence: true
+  validates :shippingfrom_id, presence: true
   validates :shipping_days, presence: true
-  validates :seller, presence: true
-  validates :category, presence: true
+  validates :seller_id, presence: true
+  validates :category_id, presence: true
   validates :photos, presence: true
 
 end
