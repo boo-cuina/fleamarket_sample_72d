@@ -11,9 +11,8 @@ class Address < ApplicationRecord
     validates :first_name
     validates :first_name_reading
     validates :postcode
-    validates :prefecture
+    validates :prefecture_id
     validates :city
     validates :block
-    validates :phone_number
   end
 end
