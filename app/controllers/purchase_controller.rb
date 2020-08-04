@@ -1,3 +1,4 @@
+# 購入機能controller
 class PurchaseController < ApplicationController
 
   require 'payjp'
@@ -31,9 +32,9 @@ class PurchaseController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     # シンボルにする
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+    amount: @price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: Payjp::Customer.retrieve(@card.customer_id), #顧客ID
+    currency: 'jpy'  #日本円
   )
   redirect_to action: 'done' #完了画面に移動
   end

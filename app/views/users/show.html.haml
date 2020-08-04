@@ -7,11 +7,11 @@
     .main__contents__left
       %ul.main__contents__left__navi
         %li
-          -if @card.blank? #カード情報が登録されていない場合
+          -if @card.blank? #カード情報が登録されていない場合、新規登録画面へ遷移
             = link_to confirm_card_path, class: 'main__contents__left__navi__list' do
               支払い方法
               = icon('fas', 'angle-right', class: 'main__contents__left__navi__list__icon')
-          -else #カード情報が登録されている場合
+          -else #カード情報が登録されている場合、削除ページへ遷移
             = link_to card_path, class: 'main__contents__left__navi__list' do
               支払い方法
               = icon('fas', 'angle-right', class: 'main__contents__left__navi__list__icon')
