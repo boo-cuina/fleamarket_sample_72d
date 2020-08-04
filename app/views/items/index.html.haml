@@ -67,6 +67,9 @@
           - objects = item.photos
           - first_image = objects.first
           = image_tag first_image.image, class: 'product-box__list__image'
+            -if item.buyer_id.present?
+            .product-box__list__image__sold
+              .product-box__list__image__sold__inner SOLD
           .product-box__list__body
             .product-box__list__body__name
               = item.name
@@ -74,6 +77,7 @@
               = "￥#{item.price}"
             .product-box__list__body__comment (税込)
     
+
   .pickup-container{style: 'padding-bottom:80px;'}
     %h2.head ピックアップカテゴリー
     = link_to '#', class: "subtitle" do
