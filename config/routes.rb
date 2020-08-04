@@ -30,11 +30,11 @@ Rails.application.routes.draw do
         get 'confirm'
       end
     end
-    resources :purchase, only: [:index, :pay] do
-      member do
-        post 'index'
-        get 'pay'
-      end
-    end
+    # resources :purchase, only: [:index] do
+    #   member do
+    #     post 'index'
+    #     get 'pay'
+    #   end
+    # end
     get 'sessions/destroy'
 end
