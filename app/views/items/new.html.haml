@@ -75,8 +75,7 @@
               = f.number_field :price, required:true, class: "item-new-form3", min: 300, max: 9999999
         .btn
           = f.submit "出品する", class: "item-new__confirm-btn"
-          = button_to "下書きに保存", "#", class: "item-new__save-btn"
-          = link_to 'もどる', "#", class: "back-btn"
+          = link_to 'もどる', root_path, class: "back-btn"
         %p.caution 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
   = render 'layouts/footer-logo'
