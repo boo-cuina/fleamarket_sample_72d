@@ -13,7 +13,8 @@
         .card-show__container__inner__btn__box
           .card-show__container__inner__btn__box__info
             .card-show__container__inner__btn__box__info__data
-              = image_tag 'logo_download_ph001.png', class: 'visa-logo'
+              =image_tag "#{@card_src}", class: 'card-show__container__inner__btn__box__info__data__brand', alt: @card_brand
+              -# = image_tag 'logo_download_ph001.png', class: 'visa-logo'
             .card-show__container__inner__btn__box__info__data
               %p **** **** **** #{@last4}
             .card-show__container__inner__btn__box__info__data
