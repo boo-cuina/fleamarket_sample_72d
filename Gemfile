@@ -80,6 +80,8 @@ gem 'mini_magick'
 gem 'fog-aws'
 # PAY.JPのgem
 gem 'payjp'
+# PAY.JP関連のgem
+gem 'dotenv-rails'
 gem 'ancestry'
 gem 'active_hash'
 

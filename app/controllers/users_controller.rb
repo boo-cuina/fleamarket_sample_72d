@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     @nickname = user.nickname
+
+    @card = Card.where(user: current_user.id).first
   end
 
 

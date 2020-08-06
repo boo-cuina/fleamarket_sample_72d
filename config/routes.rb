@@ -22,10 +22,19 @@ Rails.application.routes.draw do
     end
     resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :cards do
+    resources :cards, only: [:new, :show, :create, :delete] do
       member do
-        get :confirm
+        get 'show', to: 'cards#show'
+        post 'pay', to: 'card#pay'
+        get 'delete', to: 'cards#delete'
+        get 'confirm'
       end
     end
+    # resources :purchase, only: [:index] do
+    #   member do
+    #     post 'index'
+    #     get 'pay'
+    #   end
+    # end
     get 'sessions/destroy'
 end

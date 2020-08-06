@@ -15,11 +15,11 @@
             .card-show__container__inner__btn__box__info__data
               = image_tag 'logo_download_ph001.png', class: 'visa-logo'
             .card-show__container__inner__btn__box__info__data
-              %p **** **** 4242
+              %p **** **** **** #{@last4}
             .card-show__container__inner__btn__box__info__data
-              %p 12/20
+              %p #{@exp_month} / #{@exp_year}
           .card-show__container__inner__btn__box__delete
-            = link_to confirm_card_path, class: "" do
+            = link_to delete_card_path, class: "" do
               %p 削除する
         
 -# バナー
