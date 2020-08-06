@@ -3,7 +3,7 @@
     = render 'layouts/header-logo'
   .account__main
     = form_for(@user, url: user_registration_path) do |f|
-      = render "devise/shared/error_messages", resource: @user
+      -# = render "devise/shared/error_messages", resource: @user
       .account__main__content
         %h1.account__main__content__head
           会員情報入力
@@ -23,7 +23,7 @@
           %span.require
             必須
           .form
-            = f.password_field :password, required: true, placeholder: "例）7文字以上の半角英数字", class: "input-default", min: 7, max: 9999999
+            = f.password_field :password, required: true, minlength: 7, placeholder: "例）7文字以上の半角英数字", class: "input-default", min: 7, max: 9999999
             %p.text ※英字と数字の両方を含めて設定してください
 
           %p.title パスワード（確認用）
