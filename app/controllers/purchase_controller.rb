@@ -25,8 +25,6 @@ class PurchaseController < ApplicationController
       @last4 = @default_card_information.last4
       @exp_month = @default_card_information.exp_month.to_s.rjust(2, '0')
       @exp_year = @default_card_information.exp_year.to_s.slice(2, 2)
-
-      @item = Item.find_by(id: params[:id])
       @name = @item.name
       @price = @item.price
       @shipp = @item.shipping_fee

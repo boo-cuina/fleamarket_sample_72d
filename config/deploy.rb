@@ -27,7 +27,7 @@ set :keep_releases, 5
 
 # secrets.yml用のシンボリックリンクを追加
 set :linked_files, %w{ config/secrets.yml }
-# set :linked_files, %w{ .env }
+# 後の機能で使用する予定のため残しています set :linked_files, %w{ .env }
 
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
@@ -44,7 +44,7 @@ namespace :deploy do
         execute "mkdir -p #{shared_path}/config"
       end
       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-      # upload!('.env', "#{shared_path}/.env")
+      # 後の機能で使用する予定のため残しています upload!('.env', "#{shared_path}/.env")
 
     end
   end
