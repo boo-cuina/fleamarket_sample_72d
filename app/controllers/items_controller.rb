@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.photos.build
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
