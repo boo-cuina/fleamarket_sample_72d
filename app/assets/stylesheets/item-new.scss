@@ -122,12 +122,6 @@
         border: solid 1px #DDDDDD;
         display: flex;
         justify-content: left;
-        .container {
-
-          .upload-btn {
-            
-          }
-        }
       }     
     }
 
@@ -220,4 +214,7 @@
     width: 100%;
     background-color: #EEEEEE;
   }
+}
+.js-remove{
+  cursor: auto
 }

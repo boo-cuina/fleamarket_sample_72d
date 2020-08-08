@@ -9,13 +9,22 @@
         %p.note 最大５枚までアップロードできます
         .file-upload-box
           #image-box
+            #previews
+              - if @item.persisted?
+                - @item.photos.each_with_index do |image,i|
+                  = image_tag image.image, data: { index: i }, width: "80"
             = f.fields_for :photos do |i|
               .js-file_group{data:{index: "#{i.index}"}}
                 = i.file_field :image,class: "js-file"
-                %br
-                %span{class: "js-remove"}
+                .js-remove
                   削除
-
+              - if @item.persisted?
+                = i.check_box :_destroy, data:{index:"#{i.index}"}, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{data:{index: "#{@item.photos.count}"}}
+                = file_field_tag :image,class: "js-file",name: "item[photos_attributes][#{@item.photos.count}][image]"
+                .js-remove
+                  削除
       .item-new__content-detail
         .title
           %p 商品名
