@@ -8,14 +8,19 @@
           .necessary-mark 必須
         %p.note 最大５枚までアップロードできます
         .file-upload-box
-          = f.fields_for :photos do |photo|
-            .file-upload-box-image
-              = image_tag(photo.object.image)
-              %br
-              = photo.label :image, class: "update-btn-label" do
-                upload
-                = photo.file_field :image, class: "update-btn"
-                = photo.hidden_field :id, value: photo.object.id
+          #image-box
+            = f.fields_for :photos do |i|
+              .js-file_group{data:{index: "#{i.index}"}}
+                = i.file_field :image,class: "js-file"
+                .js-remove
+                  削除
+              - if @item.persisted?
+                = i.check_box :_destroy, data:{index:"#{i.index}"}, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{data:{index: "#{@item.photos.count}"}}
+                = file_field_tag :image,class: "js-file",name: "item[photos_attributes][#{@item.photos.count}][image]"
+                .js-remove
+                  削除
 
       .item-new__content-detail
         .title
