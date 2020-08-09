@@ -4,6 +4,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    gon.PAYJP_KEY = ENV['PAYJP_KEY']
   end
 
   def create
@@ -33,6 +34,8 @@ class CardsController < ApplicationController
       end
     end
   end
+
+
 
   def show        #cardのデータをpayjpに送り、情報を取り出す
     @card = Card.where(user: current_user.id).first

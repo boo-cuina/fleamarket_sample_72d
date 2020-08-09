@@ -88,3 +88,5 @@ gem 'active_hash'
 # 環境変数を簡単に定義できるENVファイルを対応させるgem
 gem 'dotenv-rails'
 gem 'rails-i18n'
+# 環境変数出力gem 0808追加
+gem 'gon'

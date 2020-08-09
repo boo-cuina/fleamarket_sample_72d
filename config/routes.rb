@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       end
       member do
         get 'confirm'
+        post 'purchase'
+        get 'done'
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
       end
@@ -30,11 +32,11 @@ Rails.application.routes.draw do
         get 'confirm'
       end
     end
-    # resources :purchase, only: [:index] do
-    #   member do
-    #     post 'index'
-    #     get 'pay'
-    #   end
-    # end
+    resources :purchase, only: [:index] do
+      member do
+        post 'index'
+        get 'pay'
+      end
+    end
     get 'sessions/destroy'
 end
