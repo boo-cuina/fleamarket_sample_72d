@@ -12,46 +12,46 @@
           %span.require
             必須
           .form
-            = f.text_field :nickname, placeholder: "例）フリマ太郎", class: "input-default"
+            = f.text_field :nickname, required: true, placeholder: "例）フリマ太郎", class: "input-default"
           %p.title メールアドレス
           %span.require
             必須
           .form
-            = f.text_field :email, placeholder: "例）PC・携帯どちらでも可", class: "input-default"
+            = f.text_field :email, email: true, required: true, placeholder: "例）PC・携帯どちらでも可", class: "input-default"
 
           %p.title パスワード
           %span.require
             必須
           .form
-            = f.password_field :password, placeholder: "例）7文字以上の半角英数字", class: "input-default"
+            = f.password_field :password, required: true, minlength: 7, placeholder: "例）7文字以上の半角英数字", class: "input-default", min: 7, max: 9999999
             %p.text ※英字と数字の両方を含めて設定してください
 
           %p.title パスワード（確認用）
           %span.require
             必須
           .form
-            = f.password_field :password_confirmation, placeholder: "例）7文字以上の半角英数字", class: "input-default"
+            = f.password_field :password_confirmation, required: true, placeholder: "例）7文字以上の半角英数字", class: "input-default"
             %p.text ※再度パスワードを入力してください
 
           %p.title お名前（全角）
           %span.require
             必須
           .form-name
-            = f.text_field :last_name, placeholder: "例）山田", class: "input-default-half"
-            = f.text_field :first_name, placeholder: "例）例太郎", class: "input-default-half"
+            = f.text_field :last_name, required: true, placeholder: "例）山田", class: "input-default-half"
+            = f.text_field :first_name, required: true, placeholder: "例）例太郎", class: "input-default-half"
 
           %p.title お名前カナ（全角）
           %span.require
             必須
           .form-name
-            = f.text_field :last_name_reading, placeholder: "例）ヤマダ", class: "input-default-half"
-            = f.text_field :first_name_reading, placeholder: "例）タロウ", class: "input-default-half"
+            = f.text_field :last_name_reading, required: true, placeholder: "例）ヤマダ", class: "input-default-half"
+            = f.text_field :first_name_reading, required: true, placeholder: "例）タロウ", class: "input-default-half"
 
           %p.title 電話番号
           %span.require
             必須
           .form
-            = f.text_field :phone_number, class: "input-default"
+            = f.text_field :phone_number, required: true, class: "input-default"
         
           %p.title 生年月日
           %span.require
