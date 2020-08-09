@@ -67,7 +67,7 @@
           = button_to "商品の削除", item_path(@item.id), method: :delete,class: "confirm-btn"
         - elsif user_signed_in? && @item.seller.id != current_user.id
           -# = button_to "購入画面に進む", "#", class: "confirm-btn"
-          = button_to "購入画面に進む", purchase_path(@item.id), class: "confirm-btn"
+          = button_to "購入画面に進む", confirm_item_path(@item.id), class: "confirm-btn"
 
 = render "layouts/footer-banner"
 = render "layouts/footer-links"
