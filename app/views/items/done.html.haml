@@ -1,0 +1,27 @@
+-# ヘッダー
+= render "layouts/header-search"
+
+-# メイン
+.item-complete
+  .item-complete__container
+    .item-complete__container__title
+      %p 購入完了確認
+    .item-complete__container__inner
+      .item-complete__container__inner__list
+        %p ご利用ありがとうございました。
+      .item-complete__container__inner__btn
+        .item-complete__container__inner__btn__box
+          .item-complete__container__inner__btn__box__icon
+            = icon('fas', 'credit-card', class: 'icon')
+          .item-complete__container__inner__btn__box__add
+            = link_to root_path, class: "" do
+              %p トップページへ戻る
+
+-# バナー
+= render "layouts/footer-banner"
+
+-# フッター
+= render "layouts/footer-links"
+
+-# 出品アイコン
+= render "layouts/sell-btn" 
