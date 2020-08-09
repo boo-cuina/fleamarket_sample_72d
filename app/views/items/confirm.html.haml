@@ -7,43 +7,37 @@
     .item-confirm__content-item
       .item-confirm__content-item__inner
         = image_tag @first_photo.image, class: "item-confirm__content-item__inner__image"
-        -# = image_tag
         .item-confirm__content-item__inner__detail
           .item-confirm__content-item__inner__detail__name
             = @item.name
-          .item-confirm__content-item__inner__detail__name
-            = @item.shipping_fee
           .item-confirm__content-item__inner__detail__price
-            = @item.price.to_s + "円"
-      -# itemの写真、タイトル、金額を表示
+            = "￥" + @item.price.to_s + "(税込)"
+            %br
+            = @item.shipping_fee
     .item-confirm__content-total
-      .total
+      .item-confirm__content-total__title
         %p 支払い金額
-        .total-amount__yen
-          = "￥" + @item.price.to_s
-          %br
-          = @item.shipping_fee
-        .total-amount__number
-        -# form_with 合計金額を表示
+      .item-confirm__content-total__price
+        = "￥" + @item.price.to_s
     .item-confirm__content-card-info
       .way-of-payment
         %p 支払い方法
-        = link_to "変更する", "#"
+        -# = link_to "変更する", "#"
       .card-infomation
         -#カード情報を表示
         %p クレジットカード
         .card-information__data
-          = image_tag "#{@card_src}", class: 'card-information__data__image', alt: @card_brand
-        .card-information__data
           %p **** **** **** #{@last4}
         .card-information__data
-          %p #{@exp_month} / #{@exp_year}
+          %p 有効期限  #{@exp_month} / #{@exp_year}
+        = image_tag "#{@card_src}", class: 'card-information__image', alt: @card_brand
     .item-confirm__content-delivery-info
       .delivery-info
         %p 配送先
-        = link_to "変更する", "#"
+        -# = link_to "変更する", "#"
       .delivery-info__detail
-        = @address.postcode
+        = "〒" + @address.postcode.to_s
+        %br
         = @address.prefecture.name
         = @address.city
         = @address.block
