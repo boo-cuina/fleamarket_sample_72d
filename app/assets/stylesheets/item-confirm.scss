@@ -50,6 +50,16 @@
       @include padding;
       height: 120px;
       border-bottom: solid 1px #EEEEEE;
+      &__inner {
+        height: 80px;
+        display: flex;
+        &__image {
+
+        }
+        &__detail {
+          align-items: right;
+        }
+      }
     }
 
     &-total {
@@ -67,7 +77,7 @@
 
     &-card-info {
       @include padding;
-      height: 160px;
+      // height: 160px;
       margin-top: 20px;
       border-bottom: solid 1px #EEEEEE;
 

@@ -5,27 +5,53 @@
     .item-confirm__content-title 
       %p 購入内容の確認
     .item-confirm__content-item
+      .item-confirm__content-item__inner
+        = image_tag @first_photo.image, class: "item-confirm__content-item__inner__image"
+        -# = image_tag
+        .item-confirm__content-item__inner__detail
+          .item-confirm__content-item__inner__detail__name
+            = @item.name
+          .item-confirm__content-item__inner__detail__name
+            = @item.shipping_fee
+          .item-confirm__content-item__inner__detail__price
+            = @item.price.to_s + "円"
       -# itemの写真、タイトル、金額を表示
     .item-confirm__content-total
       .total
         %p 支払い金額
-        .total-amount__yen  ￥
+        .total-amount__yen
+          = "￥" + @item.price.to_s
+          %br
+          = @item.shipping_fee
         .total-amount__number
         -# form_with 合計金額を表示
-      .point
-        = check_box_tag :check1
-        = label_tag :check1, "ポイントを使用（所持ポイント：○○）"
     .item-confirm__content-card-info
       .way-of-payment
         %p 支払い方法
         = link_to "変更する", "#"
       .card-infomation
-      -# カード情報を表示
+        -#カード情報を表示
+        %p クレジットカード
+        .card-information__data
+          = image_tag "#{@card_src}", class: 'card-information__data__image', alt: @card_brand
+        .card-information__data
+          %p **** **** **** #{@last4}
+        .card-information__data
+          %p #{@exp_month} / #{@exp_year}
     .item-confirm__content-delivery-info
       .delivery-info
         %p 配送先
         = link_to "変更する", "#"
+      .delivery-info__detail
+        = @address.postcode
+        = @address.prefecture.name
+        = @address.city
+        = @address.block
+        = @address.building
+        %br
+        = @user.last_name
+        = @user.first_name
     .item-confirm__content-confirm
-      = button_to "購入する", "#", class: "confirm-btn"
+      = button_to "購入する", purchase_item_path(item_id: @item.id), method: :post, class: "confirm-btn"
     = render 'layouts/footer-logo'
       
