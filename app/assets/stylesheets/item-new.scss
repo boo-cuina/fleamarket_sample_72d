@@ -216,5 +216,41 @@
   }
 }
 .js-remove{
-  cursor: auto
+  cursor: pointer;
+  width:45px;
+  border: 1px solid #ccc;
+  text-align: center;
+
 }
+#file-fields,.js-file_group,#previews{
+  display:flex;
+  
+}
+.js-file-bottun{
+  display: none;
+  
+}
+.js-file{
+  width:45px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.preview-image{
+margin-left: 5px;
+width:90px;
+}
+#image-box{
+  padding-top:5px;
+}
+.image_block{
+  
+  height: 120px;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+  padding-top:4px;
+  padding-left: 4px;
+
+}
+
