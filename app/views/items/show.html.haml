@@ -6,6 +6,10 @@
       = @item.name
     .item-show__content-picture
       = image_tag @first_photo.image, class: "item-show__content-picture__main"
+        - if @item.buyer_id.present?
+        .item-show__content-picture__main__sold
+          .item-show__content-picture__main__sold__inner SOLD
+
       .item-show__content-picture__sub
         - @photos.each do |photo|
           = image_tag photo.image ,class: "picture"
@@ -66,8 +70,10 @@
           = button_to "商品の編集", edit_item_path(@item.id), method: :get,class: "confirm-btn"
           = button_to "商品の削除", item_path(@item.id), method: :delete,class: "confirm-btn"
         - elsif user_signed_in? && @item.seller.id != current_user.id
-          -# = button_to "購入画面に進む", "#", class: "confirm-btn"
-          = button_to "購入画面に進む", purchase_path(@item.id), class: "confirm-btn"
+          - if @item.buyer_id.present?
+            = button_to "売り切れ", confirm_item_path(@item.id), method: :get, class: "soldout-btn", disabled: true
+          - else 
+            = button_to "購入画面に進む", confirm_item_path(@item.id), method: :get, class: "confirm-btn"
 
 = render "layouts/footer-banner"
 = render "layouts/footer-links"

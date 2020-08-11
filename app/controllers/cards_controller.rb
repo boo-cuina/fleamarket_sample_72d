@@ -49,6 +49,25 @@ class CardsController < ApplicationController
       @last4 = @default_card_information.last4
       @exp_month = @default_card_information.exp_month.to_s.rjust(2, '0')
       @exp_year = @default_card_information.exp_year.to_s.slice(2, 2)
+
+      ##カードのアイコン表示のための定義づけ
+      @card_brand = @default_card_information.brand
+      case @card_brand
+      when "Visa"
+        # 例えば、Pay.jpからとってきたカード情報の、ブランドが"Visa"だった場合は返り値として
+        # (画像として登録されている)Visa.pngを返す
+        @card_src = "logo_download_ph001.png"
+      when "JCB"
+        @card_src = "jcb-logomark-img-03.gif"
+      when "MasterCard"
+        @card_src = "logo_download_ph002.png"
+      when "American Express"
+        @card_src = "amex-logomark-img-06.gif"
+      when "Diners Club"
+        @card_src = "logo_download_ph003.png"
+      when "Discover"
+        @card_src = "discover-logomark-img-06.gif"
+      end
     end
   end
 
