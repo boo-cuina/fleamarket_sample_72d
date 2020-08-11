@@ -24,7 +24,7 @@
           = f.text_field :first_name_reading, placeholder: "例）タロウ", class: "input-default-half"
 
         .form-title
-          %p.title 郵便番号
+          %p.title 郵便番号（ハイフン含む）
           %span.require
             必須
         .form-name
@@ -56,7 +56,7 @@
           = f.text_field :building, class: "input-default"
 
         .form-title
-          %p.title 電話番号(ハイフンなし）
+          %p.title 電話番号(ハイフン含む）
           %span.require
             必須
         .form
