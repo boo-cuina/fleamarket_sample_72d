@@ -17,15 +17,6 @@
     line-height: 130px;
     font-size: 50px;
     background-color: #EEEEEE;
-
-    .item-new__logo {
-      height: 60px;
-      width: 200px;
-    }
-
-    p {
-      font-size: 50px;
-    }
   }
   
   &__content {
@@ -43,6 +34,7 @@
 
       p {
         font-size: 20px;
+        font-weight: bold;
       }
     }
 
@@ -50,18 +42,40 @@
       @include padding;
       height: 120px;
       border-bottom: solid 1px #EEEEEE;
+      &__inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &__image {
+          height: 80px;
+          width:  80px;
+          min-width: 80px;
+          display: flex;
+        }
+        &__detail {
+          width: 100%;
+          margin-left: 20px;
+          &__price {
+            text-align: right;
+          }
+        }
+      }
     }
 
     &-total {
       @include padding;
       height: 120px;
       border-bottom: solid 1px #EEEEEE;
-
-      .total {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: bold;
+      align-items: center;
+      &__title {
+        padding-left: 20px;
+      }
+      &__price {
+        padding-right: 20px;
       }
     }
 
@@ -69,11 +83,27 @@
       @include padding;
       height: 160px;
       margin-top: 20px;
+      margin-bottom: 20px;
       border-bottom: solid 1px #EEEEEE;
 
       .way-of-payment {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 10px;
+        p {
+          font-weight: bold;
+        }
+      }
+      .card-information {
+        &__data {
+          p {
+            line-height: 1.4em;
+          }
+        }
+        &__image {
+          max-height: 32px;
+          max-width: 48px;
+        }
       }
     }
 
@@ -82,10 +112,13 @@
       height: 160px;
       margin-top: 20px;
       border-bottom: solid 1px #EEEEEE;
-
+      p {
+        font-weight: bold;
+      }
       .delivery-info {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 10px;
       }
     }
 
@@ -113,6 +146,4 @@
       background-color: #EEEEEE;
     }
   }
-
-  
 }

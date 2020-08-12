@@ -25,30 +25,30 @@
         width: 100%;
         margin: 0 auto;
         margin-bottom: 20px;
-
+      
         &__sold{
           width: 0;
           height: 0;
-          border-top: 50px solid #ea352d ;
-          border-right: 50px solid transparent;
-          border-bottom: 50px solid transparent;
-          border-left: 50px solid #ea352d ;
+          border-top: 70px solid #ea352d ;
+          border-right: 70px solid transparent;
+          border-bottom: 70px solid transparent;
+          border-left: 70px solid #ea352d ;
           position: absolute;
           top: 0;
           left: 0;
           &__inner{
             position: absolute;
-            top: -30px;
-            left: -50px;
+            top: -40px;
+            left: -60px;
             transform: rotate(-45deg);
-            font-size: 24px;
+            font-size: 30px;
             color: #fff;
             letter-spacing: 2px;
-            font-weight: 600;          }
+            font-weight: 600;
+          }
         }
-      
       }
-      
+
       &__sub {
         display: flex;
         justify-content: center;
@@ -111,9 +111,6 @@
       color: white;
       font-size: 20px;
       border: none;
-       
     }
-    
   }
-  
 }
