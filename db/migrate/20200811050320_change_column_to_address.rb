@@ -5,6 +5,6 @@ class ChangeColumnToAddress < ActiveRecord::Migration[5.0]
   end
 
   def down
-    change_colum :addresses, :postcode, :integer, null: false
+    change_column :addresses, :postcode, :integer, null: false
   end
 end
