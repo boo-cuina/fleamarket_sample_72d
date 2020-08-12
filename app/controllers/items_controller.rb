@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(update_params)
+    if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -133,14 +133,10 @@ class ItemsController < ApplicationController
 
   private
 
-  def update_params
-    params.require(:item).permit(:name, :description, :size, :status, :price, 
-      :shipping_fee, :shippingfrom_id, :shipping_days, :category_id,photos_attributes: [:id,:image,:_destory]).merge(seller_id: current_user.id)
-  end
   def item_params
     params.require(:item).permit(:name, :description, :size, :status, :price, 
       :shipping_fee, :shippingfrom_id, :shipping_days, :category_id,
-      photos_attributes: [:image]).merge(seller_id: current_user.id)
+      photos_attributes:[:_destroy,:image,:id,]).merge(seller_id: current_user.id)
 
   end
 
