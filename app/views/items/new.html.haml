@@ -8,14 +8,21 @@
           .necessary-mark 必須
         %p.note 最大５枚までアップロードできます
         .file-upload-box
-          .container
- 
-            = f.fields_for :photos do |i|
-              = i.file_field :image, required:true, class: "upload-btn"
-              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][1][image]", id: "item_photos_attributes_1_image"
-              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][2][image]", id: "item_photos_attributes_2image"
-              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][3][image]", id: "item_photos_attributes_3_image"
-              = i.file_field :image, class: "upload-btn", name: "item[photos_attributes][4][image]", id: "item_photos_attributes_4_image"
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.photos.each_with_index do |image,i|
+                  = image_tag image.image, data: { index: i }, width: "80"
+            #file-fields
+              = f.fields_for :photos do |i|
+                .js-file_group{data:{index: "#{i.index}"}}
+                  %label{class:"js-file"}
+                    = icon('fa','camera')
+                    = i.file_field :image,class: "js-file-bottun"
+                  .js-remove 
+                    = icon('fas','trash-alt') 
+                - if @item.persisted?
+                  = i.check_box :_destroy, data:{index:"#{i.index}"}, class: 'hidden-destroy'
 
       .item-new__content-detail
         .title

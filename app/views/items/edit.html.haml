@@ -8,15 +8,28 @@
           .necessary-mark 必須
         %p.note 最大５枚までアップロードできます
         .file-upload-box
-          = f.fields_for :photos do |photo|
-            .file-upload-box-image
-              = image_tag(photo.object.image)
-              %br
-              = photo.label :image, class: "update-btn-label" do
-                upload
-                = photo.file_field :image, class: "update-btn"
-                = photo.hidden_field :id, value: photo.object.id
-
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.photos.each_with_index do |image,i|
+                  = image_tag image.image.url, data: { index: i }, width: "80px",height:"80px",class:"preview-image"
+            #file-fields
+              = f.fields_for :photos do |i|
+                .js-file_group{data:{index: "#{i.index}"}}
+                  %label{class: "js-file"}
+                    = icon("fa", "camera")
+                    = i.file_field :image, class: "js-file-bottun"
+                  .js-remove
+                    = icon("fas", "trash-alt")
+                - if @item.persisted?
+                  = i.check_box :_destroy, data:{index:"#{i.index}"}, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{data:{index: "#{@item.photos.count}"}}
+                  %label{class: "js-file"}
+                    = icon("fa", "camera")
+                    = file_field_tag :image,class: "js-file-bottun",name: "item[photos_attributes][#{@item.photos.count}][image]"
+                  .js-remove
+                    = icon("fas", "trash-alt")
       .item-new__content-detail
         .title
           %p 商品名
