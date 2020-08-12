@@ -27,7 +27,7 @@
 |last_name_reading|string|null: false|
 |first_name|string|null: false|
 |first_name_reading|string|null: false|
-|postcode|integer|null: false|
+|postcode|string|null: false|
 |prefecture|active_hash|null: false|
 |city|string|null: false|
 |block|string|null: false|

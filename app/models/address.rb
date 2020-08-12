@@ -10,7 +10,7 @@ class Address < ApplicationRecord
     validates :last_name_reading
     validates :first_name
     validates :first_name_reading
-    validates :postcode
+    validates :postcode, format: {with: /\A\d{3}-\d{4}\z/}
     validates :prefecture_id
     validates :city
     validates :block
