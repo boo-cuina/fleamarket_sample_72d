@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update, :confirm, :purchase]
   before_action :move_to_index, only: [:edit, :destroy, :update]
   before_action :set_category, only: [:new, :edit]
+  
   def get_category_children
     @category_children =  Category.find("#{params[:parent_name]}").children
   end
@@ -19,17 +20,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.photos.new
   end
-
-  # def create
-  #   @item = Item.new(item_params)
-  #   if @item.save
-  #     @item.photos.build
-  #     redirect_to controller: :items, action: :index
-  #   else
-  #     @item.photos.build
-  #     render :new
-  #   end
-  # end
 
   def create
     @item = Item.new(item_params)
@@ -60,24 +50,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # grandchild_category = @item.category
-    # child_category = grandchild_category.parent
-
-    # @category_parent_array = []
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent.name
-    # end
-
-    # @category_children_array = []
-    # Category.where(ancestry: child_category.ancestry).each do |children|
-    #   @category_children_array << children
-    # end
-
-    # @category_grandchildren_array = []
-    # Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-    #   @category_grandchildren_array << grandchildren
-    # end
-
   end
 
   def destroy
@@ -88,51 +60,13 @@ class ItemsController < ApplicationController
     end
   end
 
-   # @category = Category.find(@item.category_id)
-    # if @item.update(item_params) && @category.has_children?
-    # @category = Category.find_by(id: @item.category_id)
-    # if @category.nil?
-    #   @item.valid?
-    #   # @item.photos.build
-    #   render :edit
-    #   return false
-    # end
-    # if @category.is_childless? && @item.valid?
-    #   @item.update(item_params)
-    #   redirect_to controller: :items, action: :show
-    # else
-    #   @item.valid?
-    #   @item.errors.add(:category_id, "can't be blank")
-    #   # @item.photos.build
-    #   render :edit
-    # end
-    # binding.pry
-
   def update
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
       @item.valid?
-      # @item.errors.add(:category_id, "can't be blank")
       render :edit
     end
-    # @category = Category.find_by(id: @item.category_id)
-    # binding.pry
-    # if @item.valid?
-    #   # @item.photos.build
-    #   render :edit
-    #   return false
-    # end
-    # if Category.find(item_params[:category_id]).is_childless? && @item.valid?
-    #   @item.update(item_params)
-    #   redirect_to item_path(@item.id)
-    # # elsif 
-    # else
-    #   @item.valid?
-    #   @item.errors.add(:category_id, "can't be blank")
-    #   # @item.photos.build
-    #   render :edit
-    # end
   end
 
   def confirm
