@@ -20,6 +20,17 @@ class ItemsController < ApplicationController
     @item.photos.new
   end
 
+  # def create
+  #   @item = Item.new(item_params)
+  #   if @item.save
+  #     @item.photos.build
+  #     redirect_to controller: :items, action: :index
+  #   else
+  #     @item.photos.build
+  #     render :new
+  #   end
+  # end
+
   def create
     @item = Item.new(item_params)
     @category = Category.find_by(id: @item.category_id)
@@ -98,23 +109,30 @@ class ItemsController < ApplicationController
     # binding.pry
 
   def update
-    # if @item.update(item_params)
-    #   redirect_to item_path(@item.id)
-    # else
-    #   render :edit
-    # end
-    # @category = Category.find_by(id: @item.category_id)
-    # binding.pry
-    if Category.find(item_params[:category_id]).is_childless? && @item.valid?
-      @item.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path(@item.id)
-    # elsif 
     else
       @item.valid?
-      @item.errors.add(:category_id, "can't be blank")
-      # @item.photos.build
+      # @item.errors.add(:category_id, "can't be blank")
       render :edit
     end
+    # @category = Category.find_by(id: @item.category_id)
+    # binding.pry
+    # if @item.valid?
+    #   # @item.photos.build
+    #   render :edit
+    #   return false
+    # end
+    # if Category.find(item_params[:category_id]).is_childless? && @item.valid?
+    #   @item.update(item_params)
+    #   redirect_to item_path(@item.id)
+    # # elsif 
+    # else
+    #   @item.valid?
+    #   @item.errors.add(:category_id, "can't be blank")
+    #   # @item.photos.build
+    #   render :edit
+    # end
   end
 
   def confirm

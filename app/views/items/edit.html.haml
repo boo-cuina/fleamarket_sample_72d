@@ -47,17 +47,17 @@
         .title
           %p カテゴリー
           .necessary-mark 必須
-        .category__text-form
-          = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: '選択して下さい', selected: @item.category&.root_id}, { class: "item-category-form", id: 'parent_category'}
-          #children_wrapper.item-category-form2
-            = f.collection_select :category_id, @item.category.root.children,:id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {required: true, class: 'item-category-form2__select', id: 'child_category'}
-          #grandchildren_wrapper.item-category-form3
-            = f.collection_select :category_id, @item.category.parent.children ,:id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {required:true, class: 'item-category-form3__select', id: 'grandchild_category'}
         -# .category__text-form
-        -#   = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, { class: "item-category-form", id: 'parent_category'}
-        -#   = f.collection_select :category_id, @item.category.root.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, { class: "item-category-form2__select", id: 'child_category'}if @item.category nil?
-        -#   = f.collection_select :category_id, @item.category.parent.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, { class: "item-category-form3__select", id: 'grandchild_category'}if @item.category nil? && @item.category.childless?
+        -#   = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: '選択して下さい', selected: @item.category&.root_id}, { class: "item-category-form", id: 'parent_category'}
+        -#   #children_wrapper.item-category-form2
+        -#     = f.collection_select :category_id, @item.category.root.children,:id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {required: true, class: 'item-category-form2__select', id: 'child_category'}if @item.category nil?
+        -#   #grandchildren_wrapper.item-category-form3
+        -#     = f.collection_select :category_id, @item.category.parent.children ,:id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {required:true, class: 'item-category-form3__select', id: 'grandchild_category'}if @item.category nil? && @item.category.childless?
 
+        .category__text-form
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい',selected: @item.category&.root_id}, {required:true, class: "item-category-form", id: 'parent_category'}
+          = f.collection_select :category_id, @item.category.root.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {required:true, class: "item-category-form2__select", id: 'children_wrapper'} if @item.category nil?
+          = f.collection_select :category_id, @item.category.parent.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {required:true, class: "item-category-form3__select", id: 'grandchildren_wrapper'} if @item.category nil? && @item.category.childless?
 
 
         .title
