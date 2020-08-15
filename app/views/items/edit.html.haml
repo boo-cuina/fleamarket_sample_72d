@@ -1,5 +1,6 @@
 .item-new
   = render 'layouts/header-logo'
+  = render 'layouts/error', obj: @item
   .item-new__content
     = form_for @item do |f|
       .item-new__content-picture
@@ -47,37 +48,37 @@
           %p カテゴリー
           .necessary-mark 必須
         .category__text-form
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい', selected: @item.category.root_id}, {class: "item-category-form", id: 'parent_category'}
-          = f.collection_select :category_id, @category_children_array,:id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {class: 'item-category-form2__select', id: 'children_wrapper'}
-          = f.collection_select :category_id, @category_grandchildren_array,:id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {class: 'item-category-form3__select', id: 'grandchildren_wrapper'}
-          
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい',selected: @item.category&.root_id}, {required:true, class: "item-category-form", id: 'parent_category'}
+          = f.collection_select :category_id, @item.category.root.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.parent.id}, {required:true, class: "item-category-form2__select", id: 'children_wrapper'} if @item.category nil?
+          = f.collection_select :category_id, @item.category.parent.children, :id, :name, {include_blank: '選択して下さい',selected: @item.category.id}, {required:true, class: "item-category-form3__select", id: 'grandchildren_wrapper'} if @item.category nil? && @item.category.childless?
+
         .title
           %p サイズ 
           .necessary-mark 必須
         .category__text-form2
-          = f.select :size, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"]],{include_blank: "選択して下さい"}, {class: "item-new-form"}
+          = f.select :size, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"], ["それ以外", "それ以外"]],{include_blank: "選択して下さい"}, { class: "item-new-form"}
         .title
           %p 商品の状態
           .necessary-mark 必須
         .category__text-form3
-          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: ""}, {class: "item-new-form"}
+          = f.select :status, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {include_blank: ""}, { class: "item-new-form"}
       .item-new__content-delivery
         %p 配送について
         .title
           %p 配送料の負担
           .necessary-mark 必須
         .delivery__text-form1
-          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: ""}, {class: "item-new-form"}
+          = f.select :shipping_fee, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {include_blank: ""}, { class: "item-new-form"}
         .title
           %p 発送元の地域
           .necessary-mark 必須
         .delivery__text-form2
-          = f.collection_select :shippingfrom_id, Shippingfrom.all, :id, :name, {prompt: "--"}, {class: "item-new-form"}
+          = f.collection_select :shippingfrom_id, Shippingfrom.all, :id, :name, {prompt: "--"}, { class: "item-new-form"}
         .title
           %p 発送までの日数
           .necessary-mark 必須
         .delivery__text-form2
-          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: ""}, {class: "item-new-form"}
+          = f.select :shipping_days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {include_blank: ""}, { class: "item-new-form"}
       .item-new__content-confirm
         %p 価格（￥300〜9,999,999)
         .item-new__content-confirm__box1
@@ -87,7 +88,7 @@
           .confirm__text-form
             %p ￥
             .form
-              = f.text_field :price, class: "item-new-form3",min: 300, max: 9999999
+              = f.number_field :price,  class: "item-new-form3", min: 300, max: 9999999
         .btn
           = f.submit "編集する", class: "item-new__confirm-btn"
         = link_to 'もどる', "/items/#{@item.id}", class: "back-btn_1"

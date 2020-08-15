@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update, :confirm, :purchase]
   before_action :move_to_index, only: [:edit, :destroy, :update]
   before_action :set_category, only: [:new, :edit]
+  
   def get_category_children
     @category_children =  Category.find("#{params[:parent_name]}").children
   end
@@ -13,7 +14,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:photos).order('created_at DESC')
-
   end
 
   def new
@@ -23,9 +23,20 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    @category = Category.find_by(id: @item.category_id)
+    if @category.nil?
+      @item.valid?
+      @item.photos.build
+      render :new
+      return false
+    end
+    if @category.is_childless? && @item.valid?
+      @item.save
       redirect_to controller: :items, action: :index
     else
+      @item.valid?
+      @item.errors.add(:category_id, "can't be blank")
+      @item.photos.build
       render :new
     end
   end
@@ -39,24 +50,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    grandchild_category = @item.category
-    child_category = grandchild_category.parent
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
-
   end
 
   def destroy
@@ -71,6 +64,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
+      @item.valid?
       render :edit
     end
   end
