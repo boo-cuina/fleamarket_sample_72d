@@ -34,8 +34,8 @@ Rails.application.routes.draw do
     end
     
     get 'sessions/destroy'
-    get "get_category_children", to: "items#get_category_children"
-    get "get_category_grandchildren", to: "items#get_category_grandchildren"
+    get "get_category_children", to: "items#get_category_children", defaults: { format: 'json' }
+    get "get_category_grandchildren", to: "items#get_category_grandchildren", defaults: { format: 'json' }
 
   
 end
