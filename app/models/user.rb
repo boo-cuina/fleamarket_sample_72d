@@ -13,10 +13,10 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :password
-    validates :last_name
-    validates :last_name_reading
-    validates :first_name
-    validates :first_name_reading
+    validates :last_name, format: {with: /\A[一-龥ぁ-ん]/}
+    validates :last_name_reading, format: {with: /\A[ァ-ヶー－]+\z/}
+    validates :first_name, format: {with: /\A[一-龥ぁ-ん]/}
+    validates :first_name_reading, format: {with: /\A[ァ-ヶー－]+\z/}
     validates :birthday
   end
 end
